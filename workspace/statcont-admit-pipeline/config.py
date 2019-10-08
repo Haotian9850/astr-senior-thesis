@@ -1,0 +1,11 @@
+CENTER_PIXEL = 180
+CROP_SIZE = 160
+SOURCE_FITS_PARENT_DIR = "/mnt/documents-local/ASTR4998/data"
+SOURCE_FITS_NAME = "SerpS_TC_spw0.fits"
+STATCONT_DIR = "/mnt/documents-local/ASTR4998/products" 
+
+ADMIT_NUM_SIGMA = 2
+ADMIT_MIN_CHAN = 2
+ADMIT_MAX_CHAN = 20
+ADMIT_VLSR = 8.0
+
