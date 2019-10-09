@@ -16,7 +16,7 @@ if __name__ == "__main__":
     t3  = p.addtask(admit.CubeSpectrum_AT(), [t0, t2])
     t4 = p.addtask(admit.LineID_AT(
         tier1width = 10,
-        vlsr = 8.0, #fixed value
+        vlsr = 8.0,
         numsigma = num_sigma,
         minchan = min_chan,
         maxgap = max_chan, 
