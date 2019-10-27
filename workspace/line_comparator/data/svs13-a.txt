@@ -1,4 +1,3 @@
-SVS13-A
 CH_{3}OH
 H_{2}CCO
 CH_{3}CHO

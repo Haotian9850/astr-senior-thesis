@@ -1,0 +1,16 @@
+CO
+CS
+SiO
+DCN
+HCN
+HNO
+C_{2}H
+SO_{2}
+OCS
+H_{2}CS
+H_{2}CO
+HDCO
+CH_{3}OH
+CH_{2}DOH
+CH_{3}OCH_{3}
+CH_{3}OCHO
