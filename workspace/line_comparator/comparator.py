@@ -2,27 +2,19 @@ import sys
 
 
 def compare(f1, f2):
-    line1 = set()
-    line2 = set()
     result = set()
-    cnt = 0
-    with open(f1) as f:
-        line = f.readline()
-        if cnt != 0:
-            line1.add(line)
-        cnt += 1
-    cnt = 0
-    with open(f2) as f:
-        line = f.readline()
-        if cnt != 0:
-            line2.add(line)
-        cnt += 1
-    for molecule in line1:
-        if molecule in line2:
-            result.add(molecule)
+    for line in read_line_file(f1):
+        if line in read_line_file(f2):
+            result.add(line)
     print(result)
+
+
+def read_line_file(file_name):
+    with open(file_name) as f:
+        lines = f.readlines()
+    return set([line.rstrip() for line in lines])
             
 
 
 if __name__ == "__main__":
-    compare("data/{}".format(sys.argv[1]), "data/{}".format(sys.argv[2]))
+    compare("data/{}.txt".format(sys.argv[1]), "data/{}.txt".format(sys.argv[2]))
