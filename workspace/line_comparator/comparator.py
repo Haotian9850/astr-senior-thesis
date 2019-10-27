@@ -9,12 +9,16 @@ def list_all(dir_name):
         lines = read_line_file(line_file, dir_name)
         for line in lines:
             if line not in result:
-                result[line] = [0, []]
+                result[line] = [1, [line_file.split(".")[0]]]
             else:
                 result[line][0] += 1
-                result[line][1].append(line_file)
-    pp = pprint.PrettyPrinter(depth=6)
-    pp.pprint(result)
+                result[line][1].append(line_file.split(".")[0])
+    pretty_print(result)
+
+
+def pretty_print(result):
+    for key, value in sorted(result.items(), key=lambda item: item[1][0], reverse=True):
+        print("{}: {} occurence(s) in {}".format(key, value[0], str(value[1])))
 
 
 def compare_all(dir_name):
