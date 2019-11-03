@@ -1,16 +1,16 @@
 #!/usr/bin/env casarun
 import admit
 
-'''
-num_sigma = 2
+
+num_sigma = 1
 min_chan = 2
-max_chan = 20
-fits_file_name = "/mnt/documents-local/ASTR4998/products/SerpS_TC_spw0_cutout_180_180_160_line.fits"
+max_chan = 10
+fits_file_name = "/mnt/documents-local/ASTR4998/astr-senior-thesis/workspace/statcont_admit_pipeline/products/SerpS_TC_spw2.pbcor_cutout_180_180_100_line.fits"
 vlsr = 8.0
 
 
 if __name__ == "__main__":
-    p = admit.Project(fits_file_name + ".admit_BDP", dataserver=True) 
+    p = admit.Project(fits_file_name + ".admit", dataserver=True) 
     t0  = p.addtask(admit.Ingest_AT(file=fits_file_name))
     t1  = p.addtask(admit.CubeStats_AT(ppp=True), [t0])
     t2  = p.addtask(admit.Moment_AT(mom0clip=2.0, numsigma=[num_sigma]), [t0, t1])
@@ -23,7 +23,6 @@ if __name__ == "__main__":
         maxgap = max_chan, 
         identifylines = True,
         allowexotics = True,
-        recomblevel = 'deep',
+        recomblevel = "deep",
     ), [t1, t3])
     p.run()
-'''

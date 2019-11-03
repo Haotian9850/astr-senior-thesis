@@ -1,3 +1,10 @@
+*.admit/
+**/raw/
+**/products/
+**/data/
+raw/
+products/
+data/
 *.fits
 *.pyc
 
