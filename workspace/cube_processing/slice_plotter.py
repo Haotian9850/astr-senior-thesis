@@ -25,7 +25,7 @@ def plot_slice(slice, dim, fits_name):
     print(WCS(hdu.header))
     result = []
     for i in range(0, dim):
-        result.append([hdu.data[0][slice][i][j] for j in range(0, dim)])
+        result.append([hdu.data[0][int(slice)][i][j] for j in range(0, dim)])
     fig = plt.figure()
     ax = fig.add_subplot(111)
     cax = ax.matshow(result, interpolation="nearest")
@@ -42,12 +42,17 @@ def plot(startchan, endchan, fits_name, dim):
 
 
 if __name__ == "__main__":
+    '''
+    print(
+        calculate_slice_channel_from_admit(float(sys.argv[1]), float(sys.argv[2]))
+    )
+    '''
+
     plot(
-        int(sys.argv[1]),    #startchan
-        int(sys.argv[2]),    #endchan
+        float(sys.argv[1]),    #startchan
+        float(sys.argv[2]),    #endchan
         sys.argv[3],    #fits file name
         int(sys.argv[4])     #fits file dimension
     )
-    
 
 

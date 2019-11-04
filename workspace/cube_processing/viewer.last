@@ -1,5 +1,5 @@
 taskname           = "viewer"
-infile             =  "SerpS_TC_spw0.pbcor.fits"
+infile             =  "SerpS_TC_spw0.pbcor_cutout_180_180_100_line.fits"
 displaytype        =  "raster"
 channel            =  0
 zoom               =  1
@@ -9,4 +9,4 @@ outdpi             =  300
 outformat          =  "jpg"
 outlandscape       =  False
 gui                =  True
-#viewer(infile="SerpS_TC_spw0.pbcor.fits",displaytype="raster",channel=0,zoom=1,outfile="",outscale=1.0,outdpi=300,outformat="jpg",outlandscape=False,gui=True)
+#viewer(infile="SerpS_TC_spw0.pbcor_cutout_180_180_100_line.fits",displaytype="raster",channel=0,zoom=1,outfile="",outscale=1.0,outdpi=300,outformat="jpg",outlandscape=False,gui=True)
