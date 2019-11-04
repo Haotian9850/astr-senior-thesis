@@ -1,0 +1,7 @@
+taskname           = "imhead"
+imagename          =  "SerpS_TC_spw0.pbcor.fits"
+mode               =  "summary"
+hdkey              =  ""
+hdvalue            =  ""
+verbose            =  False
+#imhead(imagename="SerpS_TC_spw0.pbcor.fits",mode="summary",hdkey="",hdvalue="",verbose=False)
