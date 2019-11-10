@@ -2,9 +2,12 @@ import matplotlib.pyplot as plt
 from astropy.wcs import WCS
 from astropy.io import fits
 from astropy.utils.data import get_pkg_data_filename
+import matplotlib
 import matplotlib.pyplot as plt
 from matplotlib.pyplot import text
 import sys
+
+matplotlib.rc("font", size=12)
 
 DATA_BASE_DIR = "/mnt/documents-local/ASTR4998/data/raw/"
 C = 2.99792458E+8
@@ -32,7 +35,7 @@ def plot_individual_line(start_chan, end_chan, freq, y_range, offset_size, name,
     x , y = x[max(0, start_chan - offset) : min(len(x), end_chan + offset)], y[max(0, start_chan - offset) : min(len(x), end_chan + offset)]
     plt.plot(x, y)
     plt.axvline(x=find_peak_x(x, y), linewidth=1.0, color="r", linestyle=":")
-    plt.text(find_peak_x(x, y), y_range * 0.4, name, rotation=90)
+    plt.text(find_peak_x(x, y), y_range * 0.6, name, rotation=90)
     plt.ylim(0, y_range)
     plt.ticklabel_format(useOffset=False)
     plt.xlabel("Frequency (GHz)")
@@ -47,6 +50,6 @@ def find_peak_x(x, y):
 
 
 if __name__ == "__main__":
-    plot_individual_line(97, 124, 336.959, 60, 0, "Acetaldehyde", DATA_BASE_DIR, "SerpS_TC_spw0.pbcor_cutout_180_180_100_line.fits.admit", "testCubeStats.tab")
+    plot_individual_line(97, 124, 336.959, 60, 0.4, "Acetaldehyde", DATA_BASE_DIR, "SerpS_TC_spw0.pbcor_cutout_180_180_100_line.fits.admit", "testCubeStats.tab")
 
 
