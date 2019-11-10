@@ -31,18 +31,22 @@ def plot_individual_line(start_chan, end_chan, freq, y_range, offset_size, name,
     offset = int((((end_chan - start_chan) // 2) * offset_size))
     x , y = x[max(0, start_chan - offset) : min(len(x), end_chan + offset)], y[max(0, start_chan - offset) : min(len(x), end_chan + offset)]
     plt.plot(x, y)
-    fake_freq = (x[0]+x[-1])/2.0    #TODO: make sure where to put vline
-    plt.axvline(x=fake_freq, linewidth=1.0, color="r", linestyle=":")
+    plt.axvline(x=find_peak_x(x, y), linewidth=1.0, color="r", linestyle=":")
+    plt.text(find_peak_x(x, y), y_range * 0.4, name, rotation=90)
     plt.ylim(0, y_range)
     plt.ticklabel_format(useOffset=False)
     plt.xlabel("Frequency (GHz)")
     plt.ylabel("Peak / Noise")
+    plt.savefig("spw0_CH3CHO.png", dpi=300)
     plt.show()
     
+
+def find_peak_x(x, y):
+    return x[y.index(max(y))]
 
 
 
 if __name__ == "__main__":
-    plot_individual_line(839, 875, 336.959, 25, 0.4, "sample annotation", DATA_BASE_DIR, "SerpS_TC_spw0.pbcor_cutout_180_180_100_line.fits.admit", "testCubeStats.tab")
+    plot_individual_line(97, 124, 336.959, 60, 0, "Acetaldehyde", DATA_BASE_DIR, "SerpS_TC_spw0.pbcor_cutout_180_180_100_line.fits.admit", "testCubeStats.tab")
 
 
