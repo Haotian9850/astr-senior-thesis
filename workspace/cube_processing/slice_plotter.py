@@ -4,8 +4,10 @@ from astropy.io import fits
 from astropy.utils.data import get_pkg_data_filename
 import matplotlib.pyplot as plt
 import sys
+import numpy as np
 
 DATA_BASE_DIR = "/mnt/documents-local/ASTR4998/data/data/"
+SAVE_IMG_DIR = "/mnt/documents-local/notes/4998/imgs/"
 C = 2.99792458E+8
 
 
@@ -28,11 +30,13 @@ def plot_slice(slice, dim, fits_name):
         result.append([hdu.data[0][int(slice)][i][j] for j in range(0, dim)])
     fig = plt.figure()
     ax = fig.add_subplot(111)
-    cax = ax.matshow(result, interpolation="nearest")
+    cax = ax.matshow(np.asarray(result).transpose(), interpolation="nearest")
     fig.colorbar(cax)
     plt.xlabel("ICRS Right Ascension")
     plt.ylabel("ICRS Declination")
-
+    plt.gca().invert_yaxis()
+    plt.gca().xaxis.tick_bottom()
+    plt.savefig("spw5_(CH2OH)2.png", dpi=300)
     plt.show()
 
 
