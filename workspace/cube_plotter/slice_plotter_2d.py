@@ -24,7 +24,6 @@ def read_cube_spectrum_file(data_dir, package_name, file_name):
 
 def plot(data_dir, package_name, file_name):
     x, y = read_cube_spectrum_file(data_dir, package_name, file_name)
-    print(x)
     plt.plot(x, y)
     plt.show()
 
