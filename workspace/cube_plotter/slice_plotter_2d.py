@@ -3,6 +3,7 @@ from astropy.wcs import WCS
 from astropy.io import fits
 from astropy.utils.data import get_pkg_data_filename
 import matplotlib.pyplot as plt
+from matplotlib.pyplot import text
 import sys
 
 DATA_BASE_DIR = "/mnt/documents-local/ASTR4998/data/raw/"
@@ -18,15 +19,29 @@ def read_cube_spectrum_file(data_dir, package_name, file_name):
     return x, y
 
 
-def plot(startchan, endchan, data_dir, package_name, file_name):
+def plot(data_dir, package_name, file_name):
     x, y = read_cube_spectrum_file(data_dir, package_name, file_name)
     print(x)
     plt.plot(x, y)
     plt.show()
 
 
+def plot_individual_line(start_chan, end_chan, freq, y_range, name, data_dir, package_name, file_name):
+    x, y = read_cube_spectrum_file(data_dir, package_name, file_name)
+    x, y = x[start_chan : end_chan + 1], y[start_chan : end_chan + 1]
+    plt.plot(x, y)
+    fake_freq = (x[0]+x[-1])/2.0
+    plt.axvline(x=fake_freq, linewidth=1.0, color="r", linestyle=":")
+    plt.ylim(0, y_range)
+    plt.ticklabel_format(useOffset=False)
+    plt.xlabel("Frequency (GHz)")
+    plt.ylabel("Peak / Noise")
+    plt.show()
+    
+
+
 
 if __name__ == "__main__":
-    plot(-1, -1, DATA_BASE_DIR, "SerpS_TC_spw0.pbcor_cutout_180_180_100_line.fits.admit", "testCubeStats.tab")
+    plot_individual_line(839, 875, 336.959, 25, "sample annotation", DATA_BASE_DIR, "SerpS_TC_spw0.pbcor_cutout_180_180_100_line.fits.admit", "testCubeStats.tab")
 
 
