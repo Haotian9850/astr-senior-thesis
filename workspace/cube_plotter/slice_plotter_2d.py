@@ -26,11 +26,12 @@ def plot(data_dir, package_name, file_name):
     plt.show()
 
 
-def plot_individual_line(start_chan, end_chan, freq, y_range, name, data_dir, package_name, file_name):
+def plot_individual_line(start_chan, end_chan, freq, y_range, offset_size, name, data_dir, package_name, file_name):
     x, y = read_cube_spectrum_file(data_dir, package_name, file_name)
-    x, y = x[start_chan : end_chan + 1], y[start_chan : end_chan + 1]
+    offset = int((((end_chan - start_chan) // 2) * offset_size))
+    x , y = x[max(0, start_chan - offset) : min(len(x), end_chan + offset)], y[max(0, start_chan - offset) : min(len(x), end_chan + offset)]
     plt.plot(x, y)
-    fake_freq = (x[0]+x[-1])/2.0
+    fake_freq = (x[0]+x[-1])/2.0    #TODO: make sure where to put vline
     plt.axvline(x=fake_freq, linewidth=1.0, color="r", linestyle=":")
     plt.ylim(0, y_range)
     plt.ticklabel_format(useOffset=False)
@@ -42,6 +43,6 @@ def plot_individual_line(start_chan, end_chan, freq, y_range, name, data_dir, pa
 
 
 if __name__ == "__main__":
-    plot_individual_line(839, 875, 336.959, 25, "sample annotation", DATA_BASE_DIR, "SerpS_TC_spw0.pbcor_cutout_180_180_100_line.fits.admit", "testCubeStats.tab")
+    plot_individual_line(839, 875, 336.959, 25, 0.4, "sample annotation", DATA_BASE_DIR, "SerpS_TC_spw0.pbcor_cutout_180_180_100_line.fits.admit", "testCubeStats.tab")
 
 
