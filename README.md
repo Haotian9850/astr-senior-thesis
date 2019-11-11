@@ -1,2 +1,2 @@
 # ASTR
-This repository contains a set of tools I built for `.fits` data cube processing and visualization and CASA ADMIT line identification results parsing. 
+This repository contains a set of tools I built for `.fits` data cube processing and visualization and CASA ADMIT line identification results parsing. It also contains a LaTex copy of my senior thesis as an Astronomy major (BA) at the University of Virginia. 
