@@ -1,0 +1,55 @@
+max_y: 0.2
+vlsr: 8.0
+promising_lines:
+  - Cyanoformaldehyde:
+    - 861
+    - 912
+    - 0.1
+    - CNCHO
+  - gauche-Ethanol:
+    - 815
+    - 835
+    - 0
+    - CH_{3}CH_{2}OH	
+  - Cyanoallene:
+    - 802
+    - 809
+    - 0.2
+    - H_{2}CCCHCN
+  - Formyl Radical:
+    - 386
+    - 413
+    - 0
+    - HCO
+  - Cyanoacetylene:
+    - 508
+    - 709
+    - 0.2
+    - HC_{3}N
+  - Ethynyl:
+    - 355
+    - 373
+    - 0
+    - ^{13}CCH
+  - Glycolaldehyde:
+    - 222
+    - 229
+    - 0.1
+    - CH_{2}OHCHO
+  - Ethynyl:
+    - 97
+    - 203
+    - 0.1
+    - ^{13}CCH
+  - Ethylene Glycol:
+    - 76
+    - 100
+    - 0
+    - (CH2OH)_{2}
+  - Ethyl Cyanide:
+    - 0
+    - 31
+    - 0
+    - CH_{3}^{13}CH_{2}CN
+   
+  
