@@ -27,7 +27,6 @@ def pretty_print_transition(transition):
 def pretty_print_molecule(molecule):
     if molecule[0] == 'U':
         return None
-
     moleculeList = []
     splitIndice = []
     result = []
@@ -37,10 +36,8 @@ def pretty_print_molecule(molecule):
             splitIndice.append(i + 1)
         elif (not molecule_preprocessed[i].isdigit() and molecule_preprocessed[i + 1].isdigit()):
             splitIndice.append(i + 1)
-
     splitIndice.insert(0, 0)
     splitIndice.insert(len(splitIndice), len(molecule))
-
     for i in range(0, len(splitIndice) - 1):
         moleculeList.append(molecule_preprocessed[splitIndice[i] : splitIndice[i + 1]])
     for element in moleculeList:
