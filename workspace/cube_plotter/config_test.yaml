@@ -1,73 +1,101 @@
-max_y: 0.2
+max_y: 50
 promising_lines:
   2,4-Pentadiynylidyne:
   - 758
   - 761
-  - 0.2
-  - l-C_{5}H
+  - 0
+  - 0.6
+  - l-C5H
+  - 336.48597
   Acetone:
   - 327
   - 333
-  - 0.2
-  - (CH_{3})_{2}CO
+  - 0
+  - 0.6
+  - (CH3)2CO
+  - 336.59088
   Aminoacetonitrile:
   - 237
   - 252
-  - 0.2
-  - H_{2}NCH_{2}CN
+  - 0
+  - 0.6
+  - H2NCH2CN
+  - 336.61244
   Cyanoacetylene:
   - 508
   - 709
-  - 0.2
-  - HC_{3}N
+  - 0
+  - 0.6
+  - HC3N
+  - 336.52008
   Cyanoallene:
   - 802
   - 809
-  - 0.2
-  - H_{2}CCCHCN
+  - 0
+  - 0.6
+  - H2CCCHCN
+  - 336.475
   Cyanoformaldehyde:
   - 835
   - 869
-  - 0.2
+  - 0
+  - 0.6
   - CNCHO
+  - 336.46699
   Ethyl Cyanide:
   - 0
   - 31
-  - 0.2
-  - CH_{313}CH_{2}CN
+  - 0
+  - 0.6
+  - CH313CH2CN
+  - 336.66812
   Ethylene Glycol:
   - 76
   - 100
-  - 0.2
-  - g'Ga-(CH_{2}OH)_{2}
+  - 0
+  - 0.6
+  - g'Ga-(CH2OH)2
+  - 336.65001
   Ethynyl:
   - 97
   - 203
-  - 0.2
-  - _{13}CCH
+  - 0
+  - 0.6
+  - 13CCH
+  - 336.63657
   Formyl Radical:
   - 386
   - 413
-  - 0.2
+  - 0
+  - 0.6
   - HCO
+  - 336.57107
   Glycolaldehyde:
   - 222
   - 229
-  - 0.2
-  - cis-CH_{2}OHCHO
+  - 0
+  - 0.6
+  - cis-CH2OHCHO
+  - 336.61618
   Methyl Formate:
   - 799
   - 805
-  - 0.2
-  - CH_{3}OCHO
+  - 0
+  - 0.6
+  - CH3OCHO
+  - 336.47563
   Vinyl Cyanide:
   - 70
   - 73
-  - 0.2
-  - CH_{213}CHCN
+  - 0
+  - 0.6
+  - CH213CHCN
+  - 336.65305
   gauche-Ethanol:
   - 815
   - 835
-  - 0.2
-  - g-CH_{3}CH_{2}OH
+  - 0
+  - 0.6
+  - g-CH3CH2OH
+  - 336.4694
 vlsr: 8.0
