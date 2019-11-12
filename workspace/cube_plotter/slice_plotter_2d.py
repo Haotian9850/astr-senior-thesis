@@ -76,7 +76,7 @@ if __name__ == "__main__":
         DATA_BASE_DIR,
         "SerpS_TC_spw1.pbcor_cutout_180_180_100_line.fits.admit",
         TAB_FILE_NAME,
-        "config_test.yaml",
+        "config_spw1.yaml",
         "spw1"
     )
 
