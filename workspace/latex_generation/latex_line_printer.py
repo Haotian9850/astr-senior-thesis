@@ -49,3 +49,7 @@ def pretty_print_molecule(molecule):
             newElement = "_{" + element + "}"
         result.append(newElement)
     return "".join(result)
+
+
+if __name__ == "__main__":
+    pass
