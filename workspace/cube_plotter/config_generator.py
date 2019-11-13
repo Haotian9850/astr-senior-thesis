@@ -36,7 +36,7 @@ write_to_config_file(
     50,
     0.6,
     8.0,
-    "config_spw1"
+    "config_spw1    "
 )
 
             

@@ -62,7 +62,7 @@ def plot_individual_line(start_chan, end_chan, y_range, offset_size, name, vpos,
     plt.xlabel("Frequency (GHz)")
     plt.ylabel("Peak / Noise")
     plt.savefig("{}_{}.png".format(prefix, formula), dpi=300)
-    plt.show()
+   #plt.show()
     
 
 
