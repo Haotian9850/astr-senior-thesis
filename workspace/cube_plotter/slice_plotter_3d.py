@@ -6,8 +6,8 @@ import matplotlib.pyplot as plt
 import sys
 import numpy as np
 
-DATA_BASE_DIR = "/mnt/documents-local/ASTR4998/data/data/"
-SAVE_IMG_DIR = "/mnt/documents-local/notes/4998/imgs/"
+DATA_BASE_DIR = "/media/haotian/documents-local/ASTR4998/data/products"
+SAVE_IMG_DIR = ""
 C = 2.99792458E+8
 
 
@@ -21,42 +21,40 @@ def calculate_slice_channel_from_admit(start, end):
     return (start + end) // 2
 
 
-def plot_slice(slice, dim, fits_name):
+def plot_slice(slice, dim, fits_name, cutout):
     cube = get_pkg_data_filename(fits_name)
     hdu = fits.open(cube)[0]
     print(WCS(hdu.header))
     result = []
-    for i in range(0, dim):
-        result.append([hdu.data[0][int(slice)][i][j] for j in range(0, dim)])
+    for i in range(cutout, dim - cutout):
+        result.append([hdu.data[0][int(slice)][i][j] for j in range(cutout, dim - cutout)])
+    print(len(result))
+    print(len(result[0]))
     fig = plt.figure()
     ax = fig.add_subplot(111)
-    cax = ax.matshow(np.asarray(result).transpose(), interpolation="nearest")
+    cax = ax.matshow(np.asarray(result), interpolation="nearest")
     fig.colorbar(cax)
     plt.xlabel("ICRS Right Ascension")
     plt.ylabel("ICRS Declination")
     plt.gca().invert_yaxis()
     plt.gca().xaxis.tick_bottom()
-    plt.savefig("spw5_(CH2OH)2.png", dpi=300)
+    plt.contour(result, levels=np.logspace(-2, 4, num=8, endpoint=False), colors='white', alpha=0.5)
+    plt.savefig("spw3_{}".format(slice), dpi=300)
     plt.show()
 
 
-def plot(startchan, endchan, fits_name, dim):
-    plot_slice(calculate_slice_channel_from_admit(startchan, endchan), dim, fits_name)
+def plot(startchan, endchan, fits_name, dim, cutout):
+    plot_slice(calculate_slice_channel_from_admit(startchan, endchan), dim, fits_name, cutout)
 
 
 
 if __name__ == "__main__":
-    '''
-    print(
-        calculate_slice_channel_from_admit(float(sys.argv[1]), float(sys.argv[2]))
-    )
-    '''
-
     plot(
-        float(sys.argv[1]),    #startchan
-        float(sys.argv[2]),    #endchan
-        sys.argv[3],    #fits file name
-        int(sys.argv[4])     #fits file dimension
+        943,    #startchan
+        944,    #endchan
+        "SerpS_TC_spw3.pbcor_cutout_180_180_100_line.fits",    #fits file name
+        100,    #fits file dimension
+        0
     )
 
 
