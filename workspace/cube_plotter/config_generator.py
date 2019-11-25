@@ -1,7 +1,7 @@
 import yaml
 import json 
 
-DATA_PATH = "/mnt/documents-local/ASTR4998/data/raw"
+DATA_PATH = "/media/haotian/documents-local/ASTR4998/data/raw"
 
 
 def write_to_config_file(data_path, package_name, file_name, extension_size, max_y, vpos, vlsr, config_name):
@@ -27,17 +27,17 @@ def generate_lines_config(data_path, package_name, file_name, extension_size, vp
 
 
 
-
-write_to_config_file(
-    DATA_PATH,
-    "SerpS_TC_spw1.pbcor_cutout_180_180_100_line.fits.admit",
-    "lltable.4.json",
-    0,
-    50,
-    0.6,
-    8.0,
-    "config_spw1    "
-)
+if __name__ == "__main__":
+    write_to_config_file(
+        DATA_PATH,
+        "SerpS_TC_spw2.pbcor_cutout_180_180_100_line.fits.admit_BDP",
+        "lltable.9.json",
+        0,
+        120,
+        0.6,
+        8.0,
+        "config_spw2"
+    )
 
             
 

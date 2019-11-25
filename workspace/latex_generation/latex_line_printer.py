@@ -13,7 +13,7 @@ def latex_print_lines(dir_name, package_name, line_file, vlsr):
                 line["frequency"],
                 round(float(line["Eu"]), 4),
                 round(float(line["peakintensity"]), 4),
-                line["velocity"],
+                round(float(line["velocity"]), 4),
                 str(vlsr),
                 round(float(line["peakrms"]), 4)
             ))
