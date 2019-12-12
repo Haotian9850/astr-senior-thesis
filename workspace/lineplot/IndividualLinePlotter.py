@@ -109,7 +109,3 @@ class IndividualLinePlotter():
 
     def read_config(self):
         return self.configReader.read_config()
-
-
-    def find_peak_x(self, x, y):
-        return x[y.index(max(y))]

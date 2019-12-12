@@ -6,7 +6,7 @@ PACKAGE_NAME = "SerpS_TC_spw0.pbcor_cutout_180_180_100_line.fits.admit_BDP"
 CONFIG_NAME = "spw0"
 REST_FREQUENCY = 3.37061E+11
 MAX_Y = 60
-SAVEFIG = False 
+SAVEFIG = True 
 VPOS = 0.4
 VLSR = 8.0
 
