@@ -15,8 +15,7 @@ rc("font",**{"family":"sans-serif","sans-serif":["Helvetica"]})
 
 
 class ContourPlotter():
-    def __init__(self, data_dir, fits_name, cutout, channels, contour_levels, background_center, background_size, prefix, savefig):
-        self.data_dir = data_dir
+    def __init__(self, fits_name, cutout, channels, contour_levels, background_center, background_size, prefix, savefig):
         self.fits_name = fits_name
         self.cutout = cutout
         self.channels = channels
@@ -33,10 +32,11 @@ class ContourPlotter():
 
 
     def plot_individual_slice(self, channel):
-        cube = get_pkg_data_filename(self.fits_name)
+        cube = get_pkg_data_filename(
+            data_name=self.fits_name
+        )
         hdu = fits.open(cube)[0]
-        print(WCS(hdu.header))
-        print(len(hdu.data[0][0]))
+        print(".fits file header: {}".format(WCS(hdu.header)))
         plot_area = []
         background = []
         for i in range(self.cutout, len(hdu.data[0][0]) - self.cutout):
@@ -45,13 +45,8 @@ class ContourPlotter():
             background.append(
                 [hdu.data[0][channel][i][j] for j in range(self.background_center - self.background_size, len(hdu.data[0][0]))]
             )
-        print(plot_area)
-        print(len(plot_area))
-        print(len(plot_area[0]))
-        print(background)
-        print(len(background))
-        print(len(background[0]))
-        print(self.calculate_background_rms(background))
+        print("plotting .fits file of cutout size {} x {}...".format(len(plot_area), len(plot_area)))
+        print("calculating background rms from size {} x {} of center {}...".format(self.background_size, self.background_size, self.background_center))
         fig = plt.figure()
         ax = fig.add_subplot(111)
         cax = ax.matshow(np.asarray(plot_area), interpolation="nearest")
@@ -63,12 +58,10 @@ class ContourPlotter():
         plt.contour(
             plot_area,
             levels=self.make_contour_levels(self.calculate_background_rms(background)),
-            num=8,
-            endpoint=False,
-            colors="white",
-            alpha=0.5
+            colors="white"
         )
         if self.savefig:
+            print("saving plot...")
             plt.savefig("spw3_{}".format(channel), dpi=300)
         plt.show()
 
@@ -82,7 +75,7 @@ class ContourPlotter():
 
 
     def make_contour_levels(self, rms):
-        print(list(map(lambda x: x * rms, self.contour_levels)))
+        print("calculating contour levels from levels: {}".format(str(self.contour_levels)))
         return list(map(lambda x: x * rms, self.contour_levels))
         
         
