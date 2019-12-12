@@ -1,4 +1,5 @@
 from ConfigReader import ConfigReader
+from ConfigGenerator import ConfigGenerator
 
 
 
@@ -12,14 +13,21 @@ class IndividualLinePlotter():
         self.vpos = vpos 
         self.vlsr = vlsr
         self.lines_file_name = lines_file_name
+        self.configGenerator = ConfigGenerator(
+            self.data_dir,
+            self.package_name,
+            self.lines_file_name,
+            self.max_y,
+            self.vpos,
+            self.vlsr,
+            self.config_name
+        )
         self.configReader = ConfigReader(self.config_name)
         
 
-    def generate_config()
+    def generate_config(self):
+        self.configGenerator.write_to_config_file()
 
 
     def read_config(self):
-        result = dict()
-        with open(self.config_name) as config:
-            result = yaml.safe_load(config)
-        return result
+        return self.configReader.read_config()
