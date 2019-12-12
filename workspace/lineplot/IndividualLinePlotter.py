@@ -1,3 +1,5 @@
+import sys
+
 import matplotlib.pyplot as plt
 import matplotlib
 import matplotlib.pyplot as plt
@@ -8,11 +10,13 @@ from ConfigGenerator import ConfigGenerator
 from SpectrumReader import SpectrumReader
 
 
+matplotlib.rc("font", size=12)
+
+
 class IndividualLinePlotter():
-    def __init__(self, data_dir, package_name, cube_name, config_name, max_y, savefig=True, vpos=0.4, vlsr=8.0, lines_file_name="lltable.9.json", spectrum_file_name="testCubeStats.tab"):
+    def __init__(self, data_dir, package_name, config_name, max_y, savefig=True, vpos=0.4, vlsr=8.0, lines_file_name="lltable.9.json", spectrum_file_name="testCubeStats.tab"):
         self.data_dir = data_dir
         self.package_name = package_name
-        self.cube_name = cube_name
         self.config_name = config_name
         self.max_y = max_y
         self.savefig = savefig
@@ -68,7 +72,8 @@ class IndividualLinePlotter():
         plt.ticklabel_format(useOffset=False)
         plt.xlabel("Frequency (GHz)")
         plt.ylabel("Peak / Noise")
-        plt.savefig("{}_{}.png".format(prefix, formula), dpi=300)
+        if self.savefig:
+            plt.savefig("{}_{}.png".format(prefix, formula), dpi=300)
         plt.show()
 
 
@@ -78,3 +83,7 @@ class IndividualLinePlotter():
 
     def read_config(self):
         return self.configReader.read_config()
+
+
+    def find_peak_x(self, x, y):
+        return x[y.index(max(y))]
