@@ -15,13 +15,7 @@ TAB_FILE_NAME = "testCubeStats.tab"
 C = 2.99792458E+8
 
 
-def read_cube_spectrum_file(data_dir, package_name, file_name):
-    x = []
-    y = []
-    for pair in [line.rstrip() for line in open("{}/{}/{}".format(data_dir, package_name, file_name),'r').read().split('\n')[1:-1]]:
-        x.append(float(pair.split()[0].strip()))
-        y.append(10 ** float(pair.split()[1].strip()))
-    return x, y
+
 
 
 
@@ -73,16 +67,4 @@ def plot_individual_line(start_chan, end_chan, y_range, offset_size, name, vpos,
 
 def find_peak_x(x, y):
     return x[y.index(max(y))]
-
-
-
-if __name__ == "__main__":
-    plot(
-        DATA_BASE_DIR,
-        "SerpS_TC_spw0.pbcor_cutout_180_180_100_line.fits.admit_BDP",
-        TAB_FILE_NAME,
-        "config_spw0.yaml",
-        "spw2"
-    )
-
 
