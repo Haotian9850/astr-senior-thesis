@@ -4,13 +4,17 @@ import matplotlib.pyplot as plt
 import matplotlib
 import matplotlib.pyplot as plt
 from matplotlib.pyplot import text
+from matplotlib import rc
 
 from ConfigReader import ConfigReader
 from ConfigGenerator import ConfigGenerator
 from SpectrumReader import SpectrumReader
+from MoleculePrettyPrinter import MoleculePrettyPrinter
 
 
-matplotlib.rc("font", size=12)
+rc("font", size=12)
+rc("text", usetex=True)
+rc("font",**{"family":"sans-serif","sans-serif":["Helvetica"]})
 
 C = 2.99792458E+8
 
@@ -38,6 +42,7 @@ class IndividualLinePlotter():
         )
         self.configReader = ConfigReader(self.config_name)
         self.spectrumReader = SpectrumReader(self.data_dir, self.package_name, self.spectrum_file_name)
+        self.moleculePrettyPrinter = MoleculePrettyPrinter()
         
 
     def plot_lines(self):
@@ -73,10 +78,11 @@ class IndividualLinePlotter():
             color="r",
             linestyle=":"
         )
+        print(frequency - self.calculate_offset(frequency, x[0], x[-1]))
         plt.text(
-            frequency - self.calculate_offset(frequency, x[0], x[-1]),
-            max_y * vpos,
-            formula,
+            frequency - self.calculate_offset(frequency, x[0], x[-1]) * 0.98, #compensate for offset brought by Latex
+            max_y * vpos,  
+            self.moleculePrettyPrinter.pretty_print_molecule(formula),
             rotation=90
         )
         plt.ylim(0, max_y)
@@ -93,7 +99,6 @@ class IndividualLinePlotter():
         rest_wavelength = C / (self.rest_frequency)
         velocity_range_ms = frequency_range * (10 ** 9) * rest_wavelength * (10 ** -3)
         offset = frequency_range * (self.vlsr / velocity_range_ms)
-        print(offset)
         return offset
 
         
