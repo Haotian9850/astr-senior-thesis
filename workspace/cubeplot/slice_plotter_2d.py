@@ -59,14 +59,14 @@ def plot_individual_line(start_chan, end_chan, y_range, offset_size, name, vpos,
     offset = int((((end_chan - start_chan) // 2) * offset_size))
     x , y = x[max(0, start_chan - offset) : min(len(x), end_chan + offset)], y[max(0, start_chan - offset) : min(len(x), end_chan + offset)]
     plt.plot(x, y)
-    plt.axvline(x=find_peak_x(x, y), linewidth=1.0, color="r", linestyle=":")
-    plt.text(find_peak_x(x, y), y_range * vpos, formula, rotation=90)
+    plt.axvline(frequency, linewidth=1.0, color="r", linestyle=":")
+    plt.text(frequency, y_range * vpos, formula, rotation=90)
     plt.ylim(0, y_range)
     plt.ticklabel_format(useOffset=False)
     plt.xlabel("Frequency (GHz)")
     plt.ylabel("Peak / Noise")
     plt.savefig("{}_{}.png".format(prefix, formula), dpi=300)
-    plt.show()
+    #plt.show()
     latex_include.append("\\includegraphics[width=0.33\\textwidth]{}".format("{" + prefix + "_" + formula + "}"))
     
 
@@ -79,9 +79,9 @@ def find_peak_x(x, y):
 if __name__ == "__main__":
     plot(
         DATA_BASE_DIR,
-        "SerpS_TC_spw2.pbcor_cutout_180_180_100_line.fits.admit_BDP",
+        "SerpS_TC_spw0.pbcor_cutout_180_180_100_line.fits.admit_BDP",
         TAB_FILE_NAME,
-        "config_spw2.yaml",
+        "config_spw0.yaml",
         "spw2"
     )
 
