@@ -12,13 +12,16 @@ from SpectrumReader import SpectrumReader
 
 matplotlib.rc("font", size=12)
 
+C = 2.99792458E+8
+
 
 class IndividualLinePlotter():
-    def __init__(self, data_dir, package_name, config_name, max_y, savefig=True, vpos=0.4, vlsr=8.0, lines_file_name="lltable.9.json", spectrum_file_name="testCubeStats.tab"):
+    def __init__(self, data_dir, package_name, config_name, max_y, rest_frequency, savefig=True, vpos=0.4, vlsr=8.0, lines_file_name="lltable.9.json", spectrum_file_name="testCubeStats.tab"):
         self.data_dir = data_dir
         self.package_name = package_name
         self.config_name = config_name
         self.max_y = max_y
+        self.rest_frequency = rest_frequency
         self.savefig = savefig
         self.vpos = vpos 
         self.vlsr = vlsr
@@ -49,7 +52,6 @@ class IndividualLinePlotter():
                 line_info[0],
                 line_info[1],
                 config["max_y"],
-                line_info[2],
                 line,
                 line_info[3],
                 self.data_dir, 
@@ -61,13 +63,22 @@ class IndividualLinePlotter():
         print("-------- all lines are plotted --------")
 
 
-    def plot_individual_line(self, start_chan, end_chan, max_y, offset_size, name, vpos, data_dir, package_name, formula, prefix, frequency):
+    def plot_individual_line(self, start_chan, end_chan, max_y, name, vpos, data_dir, package_name, formula, prefix, frequency):
         x, y = self.spectrumReader.read_cube_spectrum_file()
-        offset = int((((end_chan - start_chan) // 2) * offset_size))
-        x , y = x[max(0, start_chan - offset) : min(len(x), end_chan + offset)], y[max(0, start_chan - offset) : min(len(x), end_chan + offset)]
-        plt.plot(x, y)
-        plt.axvline(frequency, linewidth=1.0, color="r", linestyle=":")
-        plt.text(frequency, max_y * vpos, formula, rotation=90)
+        a , b = x[start_chan : end_chan], y[start_chan: end_chan]
+        plt.plot(a, b)
+        plt.axvline(
+            frequency - self.calculate_offset(frequency, x[0], x[-1]),
+            linewidth=1.0,
+            color="r",
+            linestyle=":"
+        )
+        plt.text(
+            frequency - self.calculate_offset(frequency, x[0], x[-1]),
+            max_y * vpos,
+            formula,
+            rotation=90
+        )
         plt.ylim(0, max_y)
         plt.ticklabel_format(useOffset=False)
         plt.xlabel("Frequency (GHz)")
@@ -76,6 +87,16 @@ class IndividualLinePlotter():
             plt.savefig("{}_{}.png".format(prefix, formula), dpi=300)
         plt.show()
 
+
+    def calculate_offset(self, frequency, start, end):
+        frequency_range = start - end
+        rest_wavelength = C / (self.rest_frequency)
+        velocity_range_ms = frequency_range * (10 ** 9) * rest_wavelength * (10 ** -3)
+        offset = frequency_range * (self.vlsr / velocity_range_ms)
+        print(offset)
+        return offset
+
+        
 
     def generate_config(self):
         self.configGenerator.write_to_config_file()
