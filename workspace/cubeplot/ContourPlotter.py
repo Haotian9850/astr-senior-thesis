@@ -1,5 +1,6 @@
 import sys
 import numpy as np
+import math
 
 import matplotlib.pyplot as plt
 from astropy.wcs import WCS
@@ -14,11 +15,12 @@ rc("font",**{"family":"sans-serif","sans-serif":["Helvetica"]})
 
 
 class ContourPlotter():
-    def __init__(self, data_dir, fits_name, cutout, channels, background_center, background_size, prefix, savefig):
+    def __init__(self, data_dir, fits_name, cutout, channels, contour_levels, background_center, background_size, prefix, savefig):
         self.data_dir = data_dir
         self.fits_name = fits_name
         self.cutout = cutout
         self.channels = channels
+        self.contour_levels = contour_levels
         self.background_center = background_center
         self.background_size = background_size
         self.prefix = prefix
@@ -49,6 +51,7 @@ class ContourPlotter():
         print(background)
         print(len(background))
         print(len(background[0]))
+        print(self.calculate_background_rms(background))
         fig = plt.figure()
         ax = fig.add_subplot(111)
         cax = ax.matshow(np.asarray(plot_area), interpolation="nearest")
@@ -57,14 +60,30 @@ class ContourPlotter():
         plt.ylabel("ICRS Declination")
         plt.gca().invert_yaxis()
         plt.gca().xaxis.tick_bottom()
-        plt.contour(plot_area, levels=np.logspace(-2, 4, num=8, endpoint=False), colors='white', alpha=0.5)
+        plt.contour(
+            plot_area,
+            levels=self.make_contour_levels(self.calculate_background_rms(background)),
+            num=8,
+            endpoint=False,
+            colors="white",
+            alpha=0.5
+        )
         if self.savefig:
             plt.savefig("spw3_{}".format(channel), dpi=300)
         plt.show()
 
 
     def calculate_background_rms(self, background):
-        pass
+        square_sum = 0
+        for row in background:
+            for pixel in row:
+                square_sum += math.pow(pixel, 2)
+        return math.sqrt(square_sum / math.pow(len(background), 2))
 
+
+    def make_contour_levels(self, rms):
+        print(list(map(lambda x: x * rms, self.contour_levels)))
+        return list(map(lambda x: x * rms, self.contour_levels))
+        
         
         
