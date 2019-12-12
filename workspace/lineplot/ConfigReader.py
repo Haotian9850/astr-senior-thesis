@@ -7,6 +7,6 @@ class ConfigReader():
 
     def read_config(self):
         result = dict()
-        with open(self.config_name) as config:
+        with open("{}.yaml".format(self.config_name)) as config:
             result = yaml.safe_load(config)
         return result
