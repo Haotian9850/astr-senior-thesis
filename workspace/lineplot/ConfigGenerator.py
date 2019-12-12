@@ -18,7 +18,6 @@ class ConfigGenerator():
         }
         config["max_y"] = self.max_y
         config["vlsr"] = self.vlsr
-        print(config)
         with open("{}.yaml".format(self.config_name), "w") as config_file:
             yaml.dump(config, config_file, default_flow_style=False)
 

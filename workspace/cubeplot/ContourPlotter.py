@@ -1,6 +1,7 @@
 import sys
 import numpy as np
 import math
+import logging
 
 import matplotlib.pyplot as plt
 from astropy.wcs import WCS
@@ -8,6 +9,12 @@ from astropy.io import fits
 from astropy.utils.data import get_pkg_data_filename
 import matplotlib.pyplot as plt
 from matplotlib import rc
+
+logging.basicConfig(
+    level=logging.INFO,
+    format='%(asctime)s %(name)-6s %(levelname)-4s %(message)s',
+    datefmt='%m-%d %H:%M'
+)
 
 rc("font", size=12)
 rc("text", usetex=True)
@@ -36,7 +43,7 @@ class ContourPlotter():
             data_name=self.fits_name
         )
         hdu = fits.open(cube)[0]
-        print(".fits file header: {}".format(WCS(hdu.header)))
+        logging.info(".fits file header: {}".format(WCS(hdu.header)))
         plot_area = []
         background = []
         for i in range(self.cutout, len(hdu.data[0][0]) - self.cutout):
@@ -45,8 +52,8 @@ class ContourPlotter():
             background.append(
                 [hdu.data[0][channel][i][j] for j in range(self.background_center - self.background_size, len(hdu.data[0][0]))]
             )
-        print("plotting .fits file of cutout size {} x {}...".format(len(plot_area), len(plot_area)))
-        print("calculating background rms from size {} x {} of center {}...".format(self.background_size, self.background_size, self.background_center))
+        logging.info("plotting .fits file of cutout size {} x {}...".format(len(plot_area), len(plot_area)))
+        logging.info("calculating background rms from size {} x {} of center {}...".format(self.background_size, self.background_size, self.background_center))
         fig = plt.figure()
         ax = fig.add_subplot(111)
         cax = ax.matshow(np.asarray(plot_area), interpolation="nearest")
@@ -61,8 +68,8 @@ class ContourPlotter():
             colors="white"
         )
         if self.savefig:
-            print("saving plot...")
-            plt.savefig("spw3_{}".format(channel), dpi=300)
+            logging.info("saving plot...")
+            plt.savefig("{}_{}".format(self.prefix, channel), dpi=300)
         plt.show()
 
 
@@ -75,7 +82,7 @@ class ContourPlotter():
 
 
     def make_contour_levels(self, rms):
-        print("calculating contour levels from levels: {}".format(str(self.contour_levels)))
+        logging.info("calculating contour levels from levels: {}".format(str(self.contour_levels)))
         return list(map(lambda x: x * rms, self.contour_levels))
         
         

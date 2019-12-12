@@ -1,4 +1,5 @@
 import sys
+import logging
 
 import matplotlib.pyplot as plt
 import matplotlib
@@ -11,6 +12,11 @@ from ConfigGenerator import ConfigGenerator
 from SpectrumReader import SpectrumReader
 from MoleculePrettyPrinter import MoleculePrettyPrinter
 
+logging.basicConfig(
+    level=logging.INFO,
+    format='%(asctime)s %(name)-6s %(levelname)-4s %(message)s',
+    datefmt='%m-%d %H:%M'
+)
 
 rc("font", size=12)
 rc("text", usetex=True)
@@ -46,12 +52,12 @@ class IndividualLinePlotter():
         
 
     def plot_lines(self):
-        print("-------- generating config YAML file... --------")
+        logging.info("generating config YAML file...")
         self.configGenerator.write_to_config_file()
-        print("-------- reading config YAML file... --------")
+        logging.info("reading config YAML file...")
         config = self.configReader.read_config()
         for line in config["promising_lines"].keys():
-            print("-------- plotting line {}... --------".format(line))
+            logging.info("plotting line {}...".format(line))
             line_info = config["promising_lines"][line]
             self.plot_individual_line(
                 line_info[0],
@@ -65,7 +71,7 @@ class IndividualLinePlotter():
                 self.config_name,
                 line_info[5]
             )
-        print("-------- all lines are plotted --------")
+        logging.info("all lines are plotted")
 
 
     def plot_individual_line(self, start_chan, end_chan, max_y, name, vpos, data_dir, package_name, formula, prefix, frequency):
@@ -78,7 +84,6 @@ class IndividualLinePlotter():
             color="r",
             linestyle=":"
         )
-        print(frequency - self.calculate_offset(frequency, x[0], x[-1]))
         plt.text(
             frequency - self.calculate_offset(frequency, x[0], x[-1]) * 0.98, #compensate for offset brought by Latex
             max_y * vpos,  
