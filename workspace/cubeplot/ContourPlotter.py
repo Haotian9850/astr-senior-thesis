@@ -46,15 +46,10 @@ class ContourPlotter():
         )
         hdu = fits.open(cube)[0]
         plot_area = []
-        background = []
         for i in range(self.cutout, len(hdu.data[0][0]) - self.cutout):
             plot_area.append([hdu.data[0][channel][i][j] for j in range(self.cutout, len(hdu.data[0][0]) - self.cutout)])
-        for i in range(self.background_center - self.background_size, len(hdu.data[0][0])):
-            background.append(
-                [hdu.data[0][channel][i][j] for j in range(self.background_center - self.background_size, len(hdu.data[0][0]))]
-            )
         logging.info("plotting .fits file of cutout size {} x {}...".format(len(plot_area), len(plot_area)))
-        logging.info("calculating background rms from size {} x {} of center {}...".format(self.background_size, self.background_size, self.background_center))
+        logging.info("calculating background rms from size {} x {} from 4 corners...".format(self.background_size, self.background_size))
         background_rms = self.calculate_background_rms(hdu.data, channel)
         logging.info("slice has a background noise of {}...".format(background_rms))
         fig = plt.figure()
