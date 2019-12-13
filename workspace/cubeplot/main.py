@@ -2,13 +2,13 @@ import numpy as np
 
 from ContourPlotter import ContourPlotter
 
-FITS_NAME = "SerpS_TC_spw3.pbcor_cutout_180_180_100_line.fits"
+FITS_NAME = "SerpS_TC_spw0.pbcor_cutout_180_180_100_line.fits"
 CUTOUT = 0
-CHANNELS = [932]
-CONTOUR_LEVELS = np.linspace(2, 60, 20)
+CHANNELS = [167, 332, 474, 477, 478, 479, 480, 481, 482, 483, 485, 487]
+CONTOUR_LEVELS = np.linspace(2, 20, 10)
 BACKGROUND_CENTER = 90
 BACKGROUND_SIZE = 10
-PREFIX = "spw3"
+PREFIX = "spw0"
 SAVEFIG = True
 
 

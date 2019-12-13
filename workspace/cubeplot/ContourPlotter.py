@@ -34,11 +34,14 @@ class ContourPlotter():
 
 
     def plot_slices(self):
+        tex_include = []
         for channel in self.channels:
-            self.plot_individual_slice(channel)
+            self.plot_individual_slice(channel, tex_include)
+        for stmt in tex_include:
+            print(stmt)
 
 
-    def plot_individual_slice(self, channel):
+    def plot_individual_slice(self, channel, tex_include):
         cube = get_pkg_data_filename(
             data_name=self.fits_name
         )
@@ -76,6 +79,12 @@ class ContourPlotter():
         if self.savefig:
             logging.info("saving plot...")
             plt.savefig("{}_{}".format(self.prefix, channel), dpi=300, bbox_inches="tight")
+            tex_include.append(
+                "\\includegraphics[width=0.33\\textwidth]{{{}_{}}}".format(
+                    self.prefix,
+                    channel
+                )
+            )
         plt.show()
 
 
