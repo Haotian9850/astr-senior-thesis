@@ -53,6 +53,8 @@ class ContourPlotter():
             )
         logging.info("plotting .fits file of cutout size {} x {}...".format(len(plot_area), len(plot_area)))
         logging.info("calculating background rms from size {} x {} of center {}...".format(self.background_size, self.background_size, self.background_center))
+        background_rms = self.calculate_background_rms(background)
+        logging.info("slice has a background noise of {}...".format(background_rms))
         fig = plt.figure()
         ax = fig.add_subplot(111)
         cax = ax.matshow(np.asarray(plot_area), interpolation="nearest")
@@ -68,7 +70,7 @@ class ContourPlotter():
         plt.gca().xaxis.tick_bottom()
         plt.contour(
             plot_area,
-            levels=self.make_contour_levels(self.calculate_background_rms(background)),
+            levels=self.make_contour_levels(background_rms),
             colors="white"
         )
         if self.savefig:
