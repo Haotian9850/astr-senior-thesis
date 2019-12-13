@@ -86,34 +86,34 @@ class ContourPlotter():
     def calculate_background_rms(self, raw, channel):
         background = []
         # lower right + upper right
-        for i in range(len(raw[0][0]) - self.background_size * 2, len(raw[0][0])):
+        for i in range(len(raw[0][0]) - self.background_size, len(raw[0][0])):
             background.append(
                 [raw[0][channel][i][j] for j in range(
-                    len(raw[0][0]) - 2 * self.background_size, len(raw[0][0])
+                    len(raw[0][0]) - self.background_size, len(raw[0][0])
                 )]
             )
             background.append(
                 [raw[0][channel][i][j] for j in range(
-                    0, self.background_size * 2
+                    0, self.background_size
                 )]
             )
         # lower left + upper left
-        for i in range(0, 2 * self.background_size):
+        for i in range(0, self.background_size):
             background.append(
                 [raw[0][channel][i][j] for j in range(
-                    len(raw[0][0]) - 2 * self.background_size, len(raw[0][0])
+                    len(raw[0][0]) - self.background_size, len(raw[0][0])
                 )]
             )
             background.append(
                 [raw[0][channel][i][j] for j in range(
-                    0, 2 * self.background_size
+                    0, self.background_size
                 )]
             )
         square_sum = 0
         for row in background:
             for pixel in row:
                 square_sum += math.pow(pixel, 2)
-        return math.sqrt(square_sum / (4 * math.pow(self.background_size * 2, 2)))
+        return math.sqrt(square_sum / (4 * math.pow(self.background_size, 2)))
 
     '''
     def calculate_background_rms(self, background):

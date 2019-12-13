@@ -38,13 +38,12 @@ FITS_NAME = "SerpS_TC_spw3.fits"        #.fits file name
 CUTOUT = 0                              #cutout size
 CHANNELS = [932]                        #all channels to be plotted. list
 CONTOUR_LEVELS = np.linspace(2, 60, 10) #contour levels 
-BACKGROUND_CENTER = 90          #center pixel to measure background rms
 BACKGROUND_SIZE = 10            #size of background measuring region
 PREFIX = "spw0"                 #prefix of plots generated
 SAVEFIG = True                  #save generated plots?
 ...
 ```
-For example, a `100 x 100` image with `CUTOUT` set to `30` and `BACKGROUND_CENTER`, `BACKGROUND_SIZE` set to `90, 10` will have plot of size `40 x 40` cropped from center pixel of the slice and its background noise rms calculated based on pixel in the right corner square of size `20` 
+For example, a `100 x 100` image with `CUTOUT` set to `30` and `BACKGROUND_SIZE` set to `20` will have plot of size `40 x 40` cropped from center pixel of the slice and its background noise rms calculated based on pixel from 4 corner square (lower left, upper left, lower right, upper right) of size `20` 
 
 Run the following command to plot cube slices
 ```
@@ -52,7 +51,7 @@ $ python3 cubeplot/main.py
 ```
 Here is an example of how a plot may look like:
 
-![slice](/imgs/spw3_932.png)
+![slice](/imgs/spw0_477.png)
 
 The plot will by default have right ascension on x-axis and declination on y-axis
 
