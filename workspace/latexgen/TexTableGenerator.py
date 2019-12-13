@@ -27,8 +27,6 @@ class TexTableGenerator():
         ))
         print("\\hline")
 
-
-
     def make_table(self):
         logging.info("parsing lines for {}\n\n\n\n\n".format(self.package_name))
         self.make_table_head()
