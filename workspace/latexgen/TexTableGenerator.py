@@ -12,7 +12,7 @@ logging.basicConfig(
 
 
 class TexTableGenerator():
-    def __init__(self, data_dir, package_name, line_file, header, vlsr=8.0):
+    def __init__(self, data_dir, package_name, header, vlsr, line_file="lltable.9.json"):
         self.data_dir = data_dir
         self.package_name = package_name
         self.line_file = line_file
