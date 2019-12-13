@@ -43,7 +43,6 @@ class ContourPlotter():
             data_name=self.fits_name
         )
         hdu = fits.open(cube)[0]
-        logging.info(".fits file header: {}".format(WCS(hdu.header)))
         plot_area = []
         background = []
         for i in range(self.cutout, len(hdu.data[0][0]) - self.cutout):
@@ -60,8 +59,9 @@ class ContourPlotter():
         fig.colorbar(cax)
         plt.xlabel("ICRS Right Ascension")
         plt.ylabel("ICRS Declination")
-        plt.title("Channel ${}$ of {}".format(
+        plt.title("Channel ${}/{}$ of {}".format(
             channel,
+            len(hdu.data[0]),
             self.prefix
         ))
         plt.gca().invert_yaxis()
