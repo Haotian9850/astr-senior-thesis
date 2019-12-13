@@ -1,12 +1,20 @@
-import sys
+from TexTableGenerator import TexTableGenerator
 
-from latex_line_printer import latex_print_lines
-
-ADMIT_PACKAGE_PATH = "/media/haotian/documents-local/ASTR4998/data/raw"
+DATA_DIR = "/media/haotian/documents-local/ASTR4998/data/raw"
+PACKAGE_NAME = "SerpS_TC_spw0.pbcor_cutout_180_180_100_line.fits.admit_BDP"
 LINE_FILE = "lltable.9.json"
+HEADER = ["Molecule", "Name", "Transition", "Frequency", "$E_{{u}}$", "Intensity", "Velocity", "$V_{{lsr}}$", "peak / rms"]
 VLSR = 8.0
 
 if __name__ == "__main__":
-    latex_print_lines(ADMIT_PACKAGE_PATH, sys.argv[1], LINE_FILE, VLSR)
+    generator = TexTableGenerator(
+        DATA_DIR,
+        PACKAGE_NAME,
+        LINE_FILE,
+        HEADER,
+        VLSR
+    )
+
+    generator.make_table()
 
     

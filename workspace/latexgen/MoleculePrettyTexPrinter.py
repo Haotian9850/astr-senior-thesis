@@ -1,8 +1,10 @@
-class MoleculePrettyPrinter():
+class MoleculePrettyTexPrinter():
     def __init__(self):
         pass 
 
     def pretty_print_molecule(self, compound):
+        if compound[0] == 'U':
+            return
         compoundList = []
         splitIndice = []
         result = []
@@ -20,4 +22,7 @@ class MoleculePrettyPrinter():
             if element.isdigit():
                 newElement = "_{" + element + "}"
             result.append(newElement)
-        return "${}$".format("".join(result))
+        return "".join(result)
+
+    def pretty_print_transition(self, transition):
+        return transition.replace("(", "_{").replace(")", "}")

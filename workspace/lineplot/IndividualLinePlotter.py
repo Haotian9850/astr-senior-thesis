@@ -10,7 +10,7 @@ from matplotlib import rc
 from ConfigReader import ConfigReader
 from ConfigGenerator import ConfigGenerator
 from SpectrumReader import SpectrumReader
-from MoleculePrettyPrinter import MoleculePrettyPrinter
+from MoleculePrettyPlotPrinter import MoleculePrettyPrinter
 
 logging.basicConfig(
     level=logging.INFO,
@@ -48,7 +48,7 @@ class IndividualLinePlotter():
         )
         self.configReader = ConfigReader(self.config_name)
         self.spectrumReader = SpectrumReader(self.data_dir, self.package_name, self.spectrum_file_name)
-        self.moleculePrettyPrinter = MoleculePrettyPrinter()
+        self.moleculePrettyPlotPrinter = MoleculePrettyPrinter()
         
 
     def plot_lines(self):
@@ -87,7 +87,7 @@ class IndividualLinePlotter():
         plt.text(
             frequency - self.calculate_offset(frequency, x[0], x[-1]) * 0.98, #compensate for offset brought by Latex
             max_y * vpos,  
-            self.moleculePrettyPrinter.pretty_print_molecule(formula),
+            self.moleculePrettyPlotPrinter.pretty_print_molecule(formula),
             rotation=90
         )
         plt.ylim(0, max_y)
@@ -96,7 +96,7 @@ class IndividualLinePlotter():
         plt.ylabel("Peak / Noise")
         plt.title("{} ({}), ${}$ GHz".format(
             name,
-            self.moleculePrettyPrinter.pretty_print_molecule(formula),
+            self.moleculePrettyPlotPrinter.pretty_print_molecule(formula),
             frequency,
         ))
         if self.savefig:
