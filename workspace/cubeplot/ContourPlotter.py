@@ -22,12 +22,11 @@ rc("font",**{"family":"sans-serif","sans-serif":["Helvetica"]})
 
 
 class ContourPlotter():
-    def __init__(self, fits_name, cutout, channels, contour_levels, background_center, background_size, prefix, savefig):
+    def __init__(self, fits_name, cutout, channels, contour_levels, background_size, prefix, savefig):
         self.fits_name = fits_name
         self.cutout = cutout
         self.channels = channels
         self.contour_levels = contour_levels
-        self.background_center = background_center
         self.background_size = background_size
         self.prefix = prefix
         self.savefig = savefig
@@ -56,7 +55,7 @@ class ContourPlotter():
             )
         logging.info("plotting .fits file of cutout size {} x {}...".format(len(plot_area), len(plot_area)))
         logging.info("calculating background rms from size {} x {} of center {}...".format(self.background_size, self.background_size, self.background_center))
-        background_rms = self.calculate_background_rms(background)
+        background_rms = self.calculate_background_rms(hdu.data, channel)
         logging.info("slice has a background noise of {}...".format(background_rms))
         fig = plt.figure()
         ax = fig.add_subplot(111)
@@ -88,13 +87,47 @@ class ContourPlotter():
         plt.show()
 
 
+
+    def calculate_background_rms(self, raw, channel):
+        background = []
+        # lower right + upper right
+        for i in range(len(raw[0][0]) - self.background_size * 2, len(raw[0][0])):
+            background.append(
+                [raw[0][channel][i][j] for j in range(
+                    len(raw[0][0]) - 2 * self.background_size, len(raw[0][0])
+                )]
+            )
+            background.append(
+                [raw[0][channel][i][j] for j in range(
+                    0, self.background_size * 2
+                )]
+            )
+        # lower left + upper left
+        for i in range(0, 2 * self.background_size):
+            background.append(
+                [raw[0][channel][i][j] for j in range(
+                    len(raw[0][0]) - 2 * self.background_size, len(raw[0][0])
+                )]
+            )
+            background.append(
+                [raw[0][channel][i][j] for j in range(
+                    0, 2 * self.background_size
+                )]
+            )
+        square_sum = 0
+        for row in background:
+            for pixel in row:
+                square_sum += math.pow(pixel, 2)
+        return math.sqrt(square_sum / (4 * math.pow(self.background_size * 2, 2)))
+
+    '''
     def calculate_background_rms(self, background):
         square_sum = 0
         for row in background:
             for pixel in row:
                 square_sum += math.pow(pixel, 2)
         return math.sqrt(square_sum / math.pow(len(background), 2))
-
+    '''
 
     def make_contour_levels(self, rms):
         logging.info("calculating contour levels from levels: {}".format(str(self.contour_levels)))
