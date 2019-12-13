@@ -55,3 +55,5 @@ Here is an example of how a plot may look like:
 ![slice](/imgs/spw3_932.png)
 
 The plot will by default have right ascension on x-axis and declination on y-axis
+
+## Latex generation
