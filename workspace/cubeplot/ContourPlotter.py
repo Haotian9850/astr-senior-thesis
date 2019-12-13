@@ -60,6 +60,10 @@ class ContourPlotter():
         fig.colorbar(cax)
         plt.xlabel("ICRS Right Ascension")
         plt.ylabel("ICRS Declination")
+        plt.title("Channel ${}$ of {}".format(
+            channel,
+            self.prefix
+        ))
         plt.gca().invert_yaxis()
         plt.gca().xaxis.tick_bottom()
         plt.contour(
@@ -69,7 +73,7 @@ class ContourPlotter():
         )
         if self.savefig:
             logging.info("saving plot...")
-            plt.savefig("{}_{}".format(self.prefix, channel), dpi=300)
+            plt.savefig("{}_{}".format(self.prefix, channel), dpi=300, bbox_inches="tight")
         plt.show()
 
 

@@ -94,8 +94,13 @@ class IndividualLinePlotter():
         plt.ticklabel_format(useOffset=False)
         plt.xlabel("Frequency (GHz)")
         plt.ylabel("Peak / Noise")
+        plt.title("{} ({}), ${}$ GHz".format(
+            name,
+            self.moleculePrettyPrinter.pretty_print_molecule(formula),
+            frequency,
+        ))
         if self.savefig:
-            plt.savefig("{}_{}.png".format(prefix, formula), dpi=300)
+            plt.savefig("{}_{}.png".format(prefix, formula), dpi=300, bbox_inches="tight")
         plt.show()
 
 
