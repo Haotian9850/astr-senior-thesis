@@ -1,4 +1,4 @@
-\documentclass[10pt]{article}
+\documentclass[12pt]{article}
 \usepackage{times}
 \usepackage{geometry}
 \usepackage{listings}
@@ -11,7 +11,7 @@
 \definecolor{codegray}{rgb}{0.5,0.5,0.5}
 \definecolor{codepurple}{rgb}{0.58,0,0.82}
 \definecolor{backcolour}{rgb}{0.95,0.95,0.92}
-\renewcommand{\baselinestretch}{1.4} 
+ 
 
 \lstdefinestyle{CStyle}{   
     commentstyle=\color{blue},
@@ -41,6 +41,7 @@
 \usepackage{ragged2e}
 \usepackage{pythonhighlight}
 \newlist{thematic}{itemize}{8}
+\setlist[thematic]{label=$\square$}\renewcommand{\baselinestretch}{0.6} 
 \usepackage{pifont}
 \newcommand{\cmark}{\ding{51}}%
 \newcommand{\xmark}{\ding{55}}%
@@ -51,6 +52,7 @@
 \NewDocumentCommand{\code}{v}{%
 \texttt{\textcolor{blue}{#1}}%
 }
+\renewcommand{\baselinestretch}{0.6} 
 \usepackage{graphicx}
 \graphicspath{ {./imgs/} }
 
@@ -58,15 +60,14 @@
 
 \begin{document}
 \begin{figure}
-\includegraphics[width=0.33\textwidth]{spw0_474}
-\includegraphics[width=0.33\textwidth]{spw0_477}
-\includegraphics[width=0.33\textwidth]{spw0_478}
-\includegraphics[width=0.33\textwidth]{spw0_479}
-\includegraphics[width=0.33\textwidth]{spw0_480}
-\includegraphics[width=0.33\textwidth]{spw0_481}
-\includegraphics[width=0.33\textwidth]{spw0_482}
-\includegraphics[width=0.33\textwidth]{spw0_483}
-\includegraphics[width=0.33\textwidth]{spw0_485}
+\includegraphics[width=0.245\textwidth]{spw4_CH3CHO}
+\includegraphics[width=0.245\textwidth]{spw4_H2CCCHCN}
+\includegraphics[width=0.245\textwidth]{spw4_g'Ga-(CH2OH)2}
+\includegraphics[width=0.245\textwidth]{spw4_HDCO}
+\includegraphics[width=0.245\textwidth]{spw4_CH3OHvt=0}
+\includegraphics[width=0.245\textwidth]{spw4_SiO}
+\includegraphics[width=0.245\textwidth]{spw4_CH2CHCN}
 \end{figure}
+
 
 \end{document}

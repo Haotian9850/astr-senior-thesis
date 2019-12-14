@@ -1,0 +1,59 @@
+max_y: 50
+promising_lines:
+  Acetaldehyde:
+  - 744
+  - 794
+  - 0
+  - 0.2
+  - CH3CHO
+  - 347.07146
+  Cyanoallene:
+  - 10
+  - 66
+  - 0
+  - 0.2
+  - H2CCCHCN
+  - 346.88857
+  Ethylene Glycol:
+  - 898
+  - 902
+  - 0
+  - 0.2
+  - g'Ga-(CH2OH)2
+  - 347.1013
+  Formyl Radical:
+  - 0
+  - 29
+  - 0
+  - 0.2
+  - HCO
+  - 346.88641
+  Formylium:
+  - 149
+  - 505
+  - 0
+  - 0.2
+  - H13CO+
+  - 346.99835
+  Helium Recombination Line:
+  - 29
+  - 78
+  - 0
+  - 0.2
+  - He
+  - 346.89979
+  Methyl Formate:
+  - 646
+  - 680
+  - 0
+  - 0.2
+  - CH3OCHO
+  - 347.04413
+  gauche-Ethanol:
+  - 919
+  - 958
+  - 0
+  - 0.2
+  - g-CH3CH2OH
+  - 347.11335
+vlsr: 8.0

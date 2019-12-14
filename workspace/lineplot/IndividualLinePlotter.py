@@ -54,7 +54,7 @@ class IndividualLinePlotter():
     def plot_lines(self):
         tex_include = []
         logging.info("generating config YAML file...")
-        self.configGenerator.write_to_config_file()
+        #self.configGenerator.write_to_config_file()
         logging.info("reading config YAML file...")
         config = self.configReader.read_config()
         for line in config["promising_lines"].keys():

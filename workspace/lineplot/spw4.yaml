@@ -1,0 +1,66 @@
+max_y: 90
+promising_lines:
+  Acetaldehyde:
+  - 305
+  - 323
+  - 0
+  - 0.5
+  - CH3CHO
+  - 347.28822
+  Acetone:
+  - 827
+  - 842
+  - 0
+  - 0.5
+  - (CH3)2CO
+  - 347.41743
+  Cyanoallene:
+  - 875
+  - 879
+  - 0
+  - 0.5
+  - H2CCCHCN
+  - 347.42769
+  Ethylene Glycol:
+  - 703
+  - 726
+  - 0
+  - 0.5
+  - g'Ga-(CH2OH)2
+  - 347.38717
+  Formaldehyde:
+  - 287
+  - 322
+  - 0
+  - 0.5
+  - HDCO
+  - 347.28647
+  Formic Acid:
+  - 842
+  - 850
+  - 0
+  - 0.5
+  - t-HCOOD
+  - 347.42058
+  Methanol:
+  - 638
+  - 655
+  - 0
+  - 0.5
+  - CH3OHvt=0
+  - 347.37006
+  Silicon Monoxide:
+  - 358
+  - 605
+  - 0
+  - 0.5
+  - SiO
+  - 347.33058
+  Vinyl Cyanide:
+  - 810
+  - 827
+  - 0
+  - 0.5
+  - CH2CHCN
+  - 347.41369
+vlsr: 8.0
