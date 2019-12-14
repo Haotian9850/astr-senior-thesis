@@ -1,0 +1,79 @@
+\documentclass[12pt]{article}
+\usepackage{times}
+\usepackage{geometry}
+\usepackage{listings}
+\usepackage{color}
+\usepackage{xcolor}
+\usepackage[most]{tcolorbox}
+\definecolor{bg}{RGB}{240,248,255}
+ 
+\definecolor{codegreen}{rgb}{0,0.6,0}
+\definecolor{codegray}{rgb}{0.5,0.5,0.5}
+\definecolor{codepurple}{rgb}{0.58,0,0.82}
+\definecolor{backcolour}{rgb}{0.95,0.95,0.92}
+ 
+
+\lstdefinestyle{CStyle}{   
+    commentstyle=\color{blue},
+    keywordstyle=\color{magenta},
+    numberstyle=\tiny\color{gray},
+    stringstyle=\color{purple},
+    basicstyle=\footnotesize,
+    breakatwhitespace=false,         
+    breaklines=true,                 
+    captionpos=b,                    
+    keepspaces=true,                 
+    numbers=left,                    
+    numbersep=5pt,                  
+    showspaces=false,                
+    showstringspaces=false,
+    showtabs=false,                  
+    tabsize=2,
+    language=C,
+    frame=single
+}
+ 
+\lstset{style=CStyle}
+
+\geometry{letterpaper, portrait, margin=0.2in}
+\usepackage[utf8]{inputenc}
+\usepackage{enumitem,amssymb}
+\usepackage{ragged2e}
+\usepackage{pythonhighlight}
+\newlist{thematic}{itemize}{8}
+\setlist[thematic]{label=$\square$}\renewcommand{\baselinestretch}{0.6} 
+\usepackage{pifont}
+\newcommand{\cmark}{\ding{51}}%
+\newcommand{\xmark}{\ding{55}}%
+\newcommand{\done}{\rlap{$\square$}{\raisebox{2pt}{\large\hspace{1pt}\cmark}}%
+\hspace{-2.5pt}}
+\newcommand{\wontfix}{\rlap{$\square$}{\large\hspace{1pt}\xmark}}
+\usepackage{xparse}
+\NewDocumentCommand{\code}{v}{%
+\texttt{\textcolor{blue}{#1}}%
+}
+\renewcommand{\baselinestretch}{0.6} 
+\usepackage{graphicx}
+\graphicspath{ {./imgs/} }
+
+
+
+\begin{document}
+\begin{figure}
+\includegraphics[width=0.245\textwidth]{spw2_CH3CHO}
+\includegraphics[width=0.245\textwidth]{spw2_CH3COOH}
+\includegraphics[width=0.245\textwidth]{spw2_(CH3)2CO}
+\includegraphics[width=0.245\textwidth]{spw2_c-H13CCCH}
+\includegraphics[width=0.245\textwidth]{spw2_CH3CH2CN}
+\includegraphics[width=0.245\textwidth]{spw2_H2C18O}
+\includegraphics[width=0.245\textwidth]{spw2_CH3OHvt=0}
+\includegraphics[width=0.245\textwidth]{spw2_CH3NH2}
+\includegraphics[width=0.245\textwidth]{spw2_t-CH2CHCHO}
+\includegraphics[width=0.245\textwidth]{spw2_H213CS}
+\includegraphics[width=0.245\textwidth]{spw2_HDO}
+\includegraphics[width=0.245\textwidth]{spw2_t-CH3CH2OH}
+
+\end{figure}
+
+
+\end{document}

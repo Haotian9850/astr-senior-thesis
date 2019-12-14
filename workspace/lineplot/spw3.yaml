@@ -1,0 +1,108 @@
+max_y: 220
+promising_lines:
+  Acetone:
+  - 1675
+  - 1711
+  - 0
+  - 0.6
+  - (CH3)2CO
+  - 345.97366
+  Aminoacetonitrile:
+  - 766
+  - 778
+  - 0
+  - 0.6
+  - H2NCH2CN
+  - 345.75117
+  Carbon Monoxide:
+  - 804
+  - 1118
+  - 0
+  - 0.6
+  - CO
+  - 345.79599
+  Cyanoacetylene:
+  - 152
+  - 238
+  - 0
+  - 0.6
+  - HC3N
+  - 345.60901
+  Cyclopropenylidene:
+  - 1765
+  - 1781
+  - 0
+  - 0.6
+  - c-H13CCCH
+  - 345.99364
+  Ethyl Cyanide:
+  - 1551
+  - 1555
+  - 0
+  - 0.6
+  - CH3CH2CN
+  - 345.94052
+  Ethylene Glycol:
+  - 1172
+  - 1192
+  - 0
+  - 0.6
+  - g'Ga-(CH2OH)2
+  - 345.85194
+  Formaldehyde:
+  - 1287
+  - 1316
+  - 0
+  - 0.6
+  - H2C18O
+  - 345.88103
+  Formic Acid:
+  - 1701
+  - 1751
+  - 0
+  - 0.6
+  - t-DCOOH
+  - 345.98033
+  Formyl Radical:
+  - 403
+  - 420
+  - 0
+  - 0.6
+  - HCO
+  - 345.66358
+  Methanol:
+  - 1450
+  - 1484
+  - 0
+  - 0.6
+  - CH3OHvt=0
+  - 345.91919
+  Methyl Formate:
+  - 1781
+  - 1811
+  - 0
+  - 0.6
+  - CH3OCHO
+  - 346.00166
+  Nitric sulfide:
+  - 1377
+  - 1418
+  - 0
+  - 0.6
+  - NS
+  - 345.90021
+  Vinyl Alcohol:
+  - 318
+  - 329
+  - 0
+  - 0.6
+  - s-H2CCHOH
+  - 345.6418
+  gauche-Ethanol:
+  - 1862
+  - 1874
+  - 0
+  - 0.6
+  - g-CH3CH2OH
+  - 346.01721
+vlsr: 8.0

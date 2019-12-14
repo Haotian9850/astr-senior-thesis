@@ -18,7 +18,7 @@ logging.basicConfig(
     datefmt='%m-%d %H:%M'
 )
 
-rc("font", size=12)
+rc("font", size=14)
 rc("text", usetex=True)
 rc("font",**{"family":"sans-serif","sans-serif":["Helvetica"]})
 
@@ -52,6 +52,7 @@ class IndividualLinePlotter():
         
 
     def plot_lines(self):
+        tex_include = []
         logging.info("generating config YAML file...")
         self.configGenerator.write_to_config_file()
         logging.info("reading config YAML file...")
@@ -69,12 +70,15 @@ class IndividualLinePlotter():
                 self.package_name,
                 line_info[4],
                 self.config_name,
-                line_info[5]
+                line_info[5],
+                tex_include
             )
         logging.info("all lines are plotted")
+        for stmt in tex_include:
+            print(stmt)
 
 
-    def plot_individual_line(self, start_chan, end_chan, max_y, name, vpos, data_dir, package_name, formula, prefix, frequency):
+    def plot_individual_line(self, start_chan, end_chan, max_y, name, vpos, data_dir, package_name, formula, prefix, frequency, tex_include):
         x, y = self.spectrumReader.read_cube_spectrum_file()
         a , b = x[start_chan : end_chan], y[start_chan: end_chan]
         plt.plot(a, b)
@@ -101,6 +105,12 @@ class IndividualLinePlotter():
         ))
         if self.savefig:
             plt.savefig("{}_{}.png".format(prefix, formula), dpi=300, bbox_inches="tight")
+            tex_include.append(
+                "\\includegraphics[width=0.245\\textwidth]{{{}_{}}}".format(
+                    self.config_name,
+                    formula
+                )
+            )
         plt.show()
 
 

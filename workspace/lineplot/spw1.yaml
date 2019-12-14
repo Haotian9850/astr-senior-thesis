@@ -1,0 +1,73 @@
+max_y: 30
+promising_lines:
+  3-Oxo-1,2-Propadienylidene:
+  - 139
+  - 175
+  - 0
+  - 0.2
+  - CCCO
+  - 336.62937
+  Acetone:
+  - 39
+  - 55
+  - 0
+  - 0.2
+  - (CH3)2CO
+  - 336.65982
+  Aminoacetonitrile:
+  - 72
+  - 99
+  - 0
+  - 0.2
+  - H2NCH2CN
+  - 336.65152
+  Cyanoacetylene:
+  - 179
+  - 822
+  - 0
+  - 0.2
+  - HC3N
+  - 336.52008
+  Cyanoformaldehyde:
+  - 833
+  - 847
+  - 0
+  - 0.2
+  - CNCHO
+  - 336.46699
+  Ethyl Cyanide:
+  - 894
+  - 899
+  - 0
+  - 0.2
+  - CH313CH2CN
+  - 336.45107
+  Ethynyl:
+  - 55
+  - 72
+  - 0
+  - 0.2
+  - 13CCH
+  - 336.65645
+  Methanol:
+  - 936
+  - 958
+  - 0
+  - 0.2
+  - CH3OHvt=0
+  - 336.43822
+  Methyl Formate:
+  - 839
+  - 848
+  - 0
+  - 0.2
+  - CH3OCHO
+  - 336.46561
+  Sulfur dioxide:
+  - 4
+  - 20
+  - 0
+  - 0.2
+  - SO2
+  - 336.66958
+vlsr: 8.0
