@@ -2,8 +2,8 @@ from IndividualLinePlotter import IndividualLinePlotter
 
 
 DATA_DIR = "/media/haotian/documents-local/ASTR4998/data/raw"
-PACKAGE_NAME = "SerpS_TC_spw5.pbcor_cutout_180_180_100_line.fits.admit_BDP"
-CONFIG_NAME = "spw5"
+PACKAGE_NAME = "SerpS_TC_spw0.pbcor_cutout_180_180_100_line.fits.admit_BDP"
+CONFIG_NAME = "spw0"
 
 REST_FREQUENCY_SPW0 = 3.37061E+11
 REST_FREQUENCY_SPW1 = 3.366619E+11
@@ -31,8 +31,8 @@ if __name__ == "__main__":
         DATA_DIR,
         PACKAGE_NAME,
         CONFIG_NAME,
-        MAX_Y_SPW5,
-        REST_FREQUENCY_SPW5,
+        MAX_Y_SPW0,
+        REST_FREQUENCY_SPW0,
         SAVEFIG,
         VPOS,
         VLSR

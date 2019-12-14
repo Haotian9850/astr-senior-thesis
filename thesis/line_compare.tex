@@ -1,0 +1,89 @@
+\documentclass[10pt]{article}
+\usepackage{times}
+\usepackage{geometry}
+\usepackage{listings}
+\usepackage{color}
+\usepackage{xcolor}
+\usepackage[most]{tcolorbox}
+\definecolor{bg}{RGB}{240,248,255}
+ 
+\definecolor{codegreen}{rgb}{0,0.6,0}
+\definecolor{codegray}{rgb}{0.5,0.5,0.5}
+\definecolor{codepurple}{rgb}{0.58,0,0.82}
+\definecolor{backcolour}{rgb}{0.95,0.95,0.92}
+\renewcommand{\baselinestretch}{1.4} 
+
+\lstdefinestyle{CStyle}{   
+    commentstyle=\color{blue},
+    keywordstyle=\color{magenta},
+    numberstyle=\tiny\color{gray},
+    stringstyle=\color{purple},
+    basicstyle=\footnotesize,
+    breakatwhitespace=false,         
+    breaklines=true,                 
+    captionpos=b,                    
+    keepspaces=true,                 
+    numbers=left,                    
+    numbersep=5pt,                  
+    showspaces=false,                
+    showstringspaces=false,
+    showtabs=false,                  
+    tabsize=2,
+    language=C,
+    frame=single
+}
+ 
+\lstset{style=CStyle}
+
+\geometry{letterpaper, portrait, margin=0.2in}
+\usepackage[utf8]{inputenc}
+\usepackage{enumitem,amssymb}
+\usepackage{ragged2e}
+\usepackage{pythonhighlight}
+\newlist{thematic}{itemize}{8}
+\usepackage{pifont}
+\newcommand{\cmark}{\ding{51}}%
+\newcommand{\xmark}{\ding{55}}%
+\newcommand{\done}{\rlap{$\square$}{\raisebox{2pt}{\large\hspace{1pt}\cmark}}%
+\hspace{-2.5pt}}
+\newcommand{\wontfix}{\rlap{$\square$}{\large\hspace{1pt}\xmark}}
+\usepackage{xparse}
+\NewDocumentCommand{\code}{v}{%
+\texttt{\textcolor{blue}{#1}}%
+}
+\usepackage{graphicx}
+\graphicspath{ {./imgs/} }
+
+
+
+\begin{document}
+\begin{table}[htb]
+\small
+    \centering    
+    \begin{tabular}{l l} 
+\hline
+Molecule & Occurrence \\
+\hline
+$(CH_{3})_{2}CO$ & SPW0, SPW1, SPW2, SPW3, SPW4 \\
+$CH_{3}OH$ & SPW0, SPW1, SPW2, SPW3, SPW4 \\
+$(CH_{2}OH)_{2}$ & SPW0, SPW2, SPW3, SPW4, SPW5 \\
+$CH_{3}CHO$ & SPW0, SPW2, SPW4, SPW5 \\
+$H_{2}NCH_{2}CN$ & SPW0, SPW1, SPW2, SPW3 \\
+$CH_{3}CH_{2}OH$ & SPW0, SPW2, SPW3, SPW5 \\
+$CH_{3}OCHO$ & SPW1, SPW2, SPW3, SPW5 \\
+$H^{13}CCCH$ & SPW0, SPW2, SPW3 \\
+$CH_{2}CHCN$ & SPW0, SPW4 \\
+$CH_{2}OHCHO$ & SPW0, SPW2 \\
+$CH_{3}NH_{2}$ & SPW0, SPW2 \\
+$HC_{3}N$ & SPW1, SPW3 \\
+$CH_{3}CH_{2}CN$ & SPW2, SPW3 \\
+$H_{2}CCHOH$ & SPW2, SPW3 \\
+$H_{2}C^{18}O$ & SPW2, SPW3 \\
+$HCOOD$ & SPW3, SPW4 \\
+$HCO$ & SPW3, SPW5 \\
+$H_{2}CCCHCN$ & SPW4, SPW5 \\
+\hline
+
+    \end{tabular}
+\end{table}
+\end{document}

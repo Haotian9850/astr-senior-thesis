@@ -1,6 +1,13 @@
 import sys
 import os
 import json
+import logging
+
+logging.basicConfig(
+    level=logging.INFO,
+    format='%(asctime)s %(name)-6s %(levelname)-4s %(message)s',
+    datefmt='%m-%d %H:%M'
+)
 
 
 def list_all(dir_name):
@@ -14,27 +21,41 @@ def list_all(dir_name):
                 result[line][0] += 1
                 result[line][1].append(line_file.split(".")[0])
     pretty_print(result)
+    print("\n\n\n")
+    tex_print(result)
 
 
 def read_all_admit_package(dir_name):
     for package in os.listdir(dir_name):
-        read_admit_package(dir_name, package, "lltable.4.json")
+        logging.info("reading line results from admit data package {}...".format(package))
+        print("\n\n")
+        read_admit_package(dir_name, package, "lltable.9.json")
+        print("\n\n\n")
 
 
 
 def read_admit_package(dir_name, package_name, line_file):
-    print("Identified lines for {}:".format(package_name))
     with open("{}/{}/{}".format(dir_name, package_name, line_file), "r") as p:
         for line in json.load(p)["linetable"]["lines"]:
             if line["formula"][0] == "U":
                 continue
-            print("{}".format(pretty_print_molecule(line["formula"])))
-    print("\n")
+            print(pretty_print_molecule(line["formula"]))
+
+
 
 
 def pretty_print(result):
     for key, value in sorted(result.items(), key=lambda item: item[1][0], reverse=True):
         print("{}: {} occurence(s) in {}".format(key, value[0], ", ".join(value[1])))
+
+
+
+def tex_print(result):
+    for key, value in sorted(result.items(), key=lambda item: item[1][0], reverse=True):
+        print("${}$ & {} \\\\".format(
+            key,
+            ", ".join(value[1])
+        ))
 
 
 def pretty_print_molecule(compound):
@@ -57,7 +78,7 @@ def pretty_print_molecule(compound):
         if element.isdigit():
             newElement = "_{" + element + "}"
         result.append(newElement)
-    return "".join(result).replace("g'", "").replace("g-", "").replace("Ga-", "").replace("c-", "").replace("t-", "").replace("v=_{0" + "}", "").replace("s-", "")
+    return "".join(result).replace("g'", "").replace("g-", "").replace("Ga-", "").replace("c-", "").replace("t-", "").replace("v=_{0" + "}", "").replace("s-", "").replace("vt=_{0" + "}", "").replace("&", "/").replace(";", "")
 
 
 
@@ -88,8 +109,6 @@ def read_line_file(file_name, dir_name):
 
 
 if __name__ == "__main__":
-    #compare_two("data/{}.txt".format(sys.argv[1]), "data/{}.txt".format(sys.argv[2]))
-    #compare_all("data")
-    #compare_multiple(["ser-emb1.txt", "svs13-a.txt"], "data")
     list_all("data")
-    # read_all_admit_package("raw")
+    
+    #read_all_admit_package("/media/haotian/documents-local/ASTR4998/data/raw")
