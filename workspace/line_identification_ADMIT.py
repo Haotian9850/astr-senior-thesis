@@ -4,8 +4,8 @@ import admit
 
 NUM_SIGMA = 2
 MIN_CHAN = 2
-MAX_CHAN = 20
-FITS_CUBE = "/media/haotian/documents-local/ASTR4998/data/products/SerpS_TC_spw3.pbcor_cutout_180_180_100_line.fits"
+MAX_CHAN = 10
+FITS_CUBE = "/media/haotian/documents-local/ASTR4998/data/products/SerpS_TC_spw5.pbcor_cutout_180_180_100_line.fits"
 VLSR = 8.0
 
 

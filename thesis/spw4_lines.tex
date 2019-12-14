@@ -1,0 +1,88 @@
+\documentclass[10pt]{article}
+\usepackage{times}
+\usepackage{geometry}
+\usepackage{listings}
+\usepackage{color}
+\usepackage{xcolor}
+\usepackage[most]{tcolorbox}
+\definecolor{bg}{RGB}{240,248,255}
+ 
+\definecolor{codegreen}{rgb}{0,0.6,0}
+\definecolor{codegray}{rgb}{0.5,0.5,0.5}
+\definecolor{codepurple}{rgb}{0.58,0,0.82}
+\definecolor{backcolour}{rgb}{0.95,0.95,0.92}
+\renewcommand{\baselinestretch}{1.4} 
+
+\lstdefinestyle{CStyle}{   
+    commentstyle=\color{blue},
+    keywordstyle=\color{magenta},
+    numberstyle=\tiny\color{gray},
+    stringstyle=\color{purple},
+    basicstyle=\footnotesize,
+    breakatwhitespace=false,         
+    breaklines=true,                 
+    captionpos=b,                    
+    keepspaces=true,                 
+    numbers=left,                    
+    numbersep=5pt,                  
+    showspaces=false,                
+    showstringspaces=false,
+    showtabs=false,                  
+    tabsize=2,
+    language=C,
+    frame=single
+}
+ 
+\lstset{style=CStyle}
+
+\geometry{letterpaper, portrait, margin=0.2in}
+\usepackage[utf8]{inputenc}
+\usepackage{enumitem,amssymb}
+\usepackage{ragged2e}
+\usepackage{pythonhighlight}
+\newlist{thematic}{itemize}{8}
+\usepackage{pifont}
+\newcommand{\cmark}{\ding{51}}%
+\newcommand{\xmark}{\ding{55}}%
+\newcommand{\done}{\rlap{$\square$}{\raisebox{2pt}{\large\hspace{1pt}\cmark}}%
+\hspace{-2.5pt}}
+\newcommand{\wontfix}{\rlap{$\square$}{\large\hspace{1pt}\xmark}}
+\usepackage{xparse}
+\NewDocumentCommand{\code}{v}{%
+\texttt{\textcolor{blue}{#1}}%
+}
+\usepackage{graphicx}
+\graphicspath{ {./imgs/} }
+
+
+
+\begin{document}
+\begin{table}[htb]
+\small
+    \centering    
+    \begin{tabular}{l l l l l l l l l} 
+\hline
+Molecule & Name & Transition & Frequency & $E_{{u}}$ & Intensity & Velocity & $V_{{lsr}}$ & Peak / rms \\
+\hline
+$CH_{3}CHOvt=_{1}$ & Acetaldehyde & $18_{5,13}-17_{5,12}E$ & $347.21683$ & $420.4368$ & $11.3958$ & $9.7207$ & $8.0$ & $22.936$\\
+$CH_{3}CHOv=_{0}$ & Acetaldehyde & $19_{0,19}-18_{-1,18}E$ & $347.24038$ & $171.8864$ & $2.1204$ & $9.5018$ & $8.0$ & $4.2677$\\
+$(CH_{3})_{2}COv=_{0}$ & Acetone & $41_{25,16}-41_{22,19}EA$ & $347.26121$ & $700.7776$ & $-0.0697$ & $9.714$ & $8.0$ & $-0.1438$\\
+$CH_{213}CHCN$ & Vinyl Cyanide & $50_{5,45}-50_{4,46}$ & $347.27314$ & $631.6862$ & $-0.5368$ & $8.4083$ & $8.0$ & $-1.1077$\\
+$HDCO$ & Formaldehyde & $4_{2,2}-5_{0,5}$ & $347.28647$ & $62.8611$ & $7.5691$ & $11.0417$ & $8.0$ & $15.2342$\\
+$CH_{3}CHOv=_{0}$ & Acetaldehyde & $18_{5,14}-17_{5,13}A++$ & $347.28822$ & $214.6964$ & $9.9113$ & $12.3779$ & $8.0$ & $19.9483$\\
+$g'Ga-(CH_{2}OH)_{2}$ & Ethylene Glycol & $19_{8,12}v=1-18_{7,11}v=1$ & $347.29829$ & $125.2303$ & $9.7218$ & $5.8715$ & $8.0$ & $19.5668$\\
+$SiO$ & Silicon Monoxide & $8-7$ & $347.33058$ & $75.017$ & $37.9513$ & $-7.0397$ & $8.0$ & $76.3837$\\
+$CH_{3}OHvt=_{0}$ & Methanol & $4_{2,2}-4_{-1,4}$ & $347.37006$ & $45.4594$ & $6.1449$ & $9.6635$ & $8.0$ & $12.3678$\\
+$g'Ga-(CH_{2}OH)_{2}$ & Ethylene Glycol & $32_{6,26}v=1-31_{6,25}v=0$ & $347.38717$ & $282.6495$ & $7.3878$ & $9.4337$ & $8.0$ & $14.8693$\\
+$CH_{2}CHCNv=_{0}$ & Vinyl Cyanide & $55_{3,53}-56_{0,56}$ & $347.41369$ & $719.2458$ & $0.1307$ & $8.6672$ & $8.0$ & $0.2697$\\
+$(CH_{3})_{2}COv=_{0}$ & Acetone & $24_{14,10}-23_{15,9}AA$ & $347.41743$ & $242.8387$ & $-0.135$ & $7.3357$ & $8.0$ & $-0.2786$\\
+$t-HCOOD$ & Formic Acid & $21_{1,20}-21_{1,21}$ & $347.42058$ & $247.3015$ & $-0.161$ & $5.6621$ & $8.0$ & $-0.3321$\\
+$H_{2}CCCHCN$ & Cyanoallene & $81_{4,77}-80_{5,76}$ & $347.42769$ & $849.0271$ & $-0.0005$ & $8.172$ & $8.0$ & $-0.1791$\\
+\hline
+
+
+
+
+    \end{tabular}
+\end{table}
+\end{document}

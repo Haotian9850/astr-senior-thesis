@@ -22,7 +22,7 @@ class MoleculePrettyTexPrinter():
             if element.isdigit():
                 newElement = "_{" + element + "}"
             result.append(newElement)
-        return "".join(result)
+        return "".join(result).replace("v=_{{0}}", "").replace("vt=_{{0}}", "")
 
     def pretty_print_transition(self, transition):
         return transition.replace("(", "_{").replace(")", "}")

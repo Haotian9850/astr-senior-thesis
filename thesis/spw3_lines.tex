@@ -1,0 +1,99 @@
+\documentclass[10pt]{article}
+\usepackage{times}
+\usepackage{geometry}
+\usepackage{listings}
+\usepackage{color}
+\usepackage{xcolor}
+\usepackage[most]{tcolorbox}
+\definecolor{bg}{RGB}{240,248,255}
+ 
+\definecolor{codegreen}{rgb}{0,0.6,0}
+\definecolor{codegray}{rgb}{0.5,0.5,0.5}
+\definecolor{codepurple}{rgb}{0.58,0,0.82}
+\definecolor{backcolour}{rgb}{0.95,0.95,0.92}
+\renewcommand{\baselinestretch}{1.4} 
+
+\lstdefinestyle{CStyle}{   
+    commentstyle=\color{blue},
+    keywordstyle=\color{magenta},
+    numberstyle=\tiny\color{gray},
+    stringstyle=\color{purple},
+    basicstyle=\footnotesize,
+    breakatwhitespace=false,         
+    breaklines=true,                 
+    captionpos=b,                    
+    keepspaces=true,                 
+    numbers=left,                    
+    numbersep=5pt,                  
+    showspaces=false,                
+    showstringspaces=false,
+    showtabs=false,                  
+    tabsize=2,
+    language=C,
+    frame=single
+}
+ 
+\lstset{style=CStyle}
+
+\geometry{letterpaper, portrait, margin=0.2in}
+\usepackage[utf8]{inputenc}
+\usepackage{enumitem,amssymb}
+\usepackage{ragged2e}
+\usepackage{pythonhighlight}
+\newlist{thematic}{itemize}{8}
+\usepackage{pifont}
+\newcommand{\cmark}{\ding{51}}%
+\newcommand{\xmark}{\ding{55}}%
+\newcommand{\done}{\rlap{$\square$}{\raisebox{2pt}{\large\hspace{1pt}\cmark}}%
+\hspace{-2.5pt}}
+\newcommand{\wontfix}{\rlap{$\square$}{\large\hspace{1pt}\xmark}}
+\usepackage{xparse}
+\NewDocumentCommand{\code}{v}{%
+\texttt{\textcolor{blue}{#1}}%
+}
+\usepackage{graphicx}
+\graphicspath{ {./imgs/} }
+
+
+
+\begin{document}
+\begin{table}[htb]
+\small
+    \centering    
+    \begin{tabular}{l l l l l l l l l} 
+
+    
+    \hline
+Molecule & Name & Transition & Frequency & $E_{{u}}$ & Intensity & Velocity & $V_{{lsr}}$ & Peak / rms \\
+\hline
+$HC_{3}N$ & Cyanoacetylene & $J=38-37$ & $345.60901$ & $323.4915$ & $21.2643$ & $9.0408$ & $8.0$ & $35.7027$\\
+$t-HCOOD$ & Formic Acid & $21_{8,13}-22_{7,16}$ & $345.63774$ & $410.7233$ & $2.5643$ & $8.2591$ & $8.0$ & $4.3054$\\
+$s-H_{2}CCHOH$ & Vinyl Alcohol & $18_{2,17}-17_{2,16}$ & $345.6418$ & $168.4271$ & $4.9808$ & $7.4902$ & $8.0$ & $8.3628$\\
+$CH_{3}OCHOv=_{0}$ & Methyl Formate & $9_{9,1}-8_{8,1}E$ & $345.65066$ & $80.3102$ & $10.4041$ & $6.7926$ & $8.0$ & $17.4684$\\
+$HCO$ & Formyl Radical & $4_{2,3}-3_{2,2},J=9/2-7/2$ & $345.65558$ & $172.8172$ & $4.2624$ & $6.5482$ & $8.0$ & $7.1566$\\
+$HCO$ & Formyl Radical & $4_{2,3}-3_{2,2},J=9/2-7/2$ & $345.66358$ & $172.8071$ & $3.0956$ & $7.6552$ & $8.0$ & $5.1975$\\
+$(CH_{3})_{2}COv=_{0}$ & Acetone & $15_{7,8}-14_{6,9}EE$ & $345.67395$ & $92.9358$ & $2.6695$ & $7.1301$ & $8.0$ & $4.4821$\\
+$g-CH_{3}CH_{2}OH$ & gauche-Ethanol & $21_{1,21}-20_{0,20},vt=1-1$ & $345.68942$ & $246.219$ & $15.7399$ & $4.9342$ & $8.0$ & $26.4272$\\
+$CH_{3}CH_{2}^{13}CN$ & Ethyl Cyanide & $33_{8,26}-33_{7,27}$ & $345.70286$ & $311.1458$ & $4.7335$ & $7.251$ & $8.0$ & $7.9476$\\
+$CH_{3}OCHOv=_{0}$ & Methyl Formate & $9_{9,1}-8_{8,0}A$ & $345.71868$ & $80.3192$ & $16.5648$ & $8.1389$ & $8.0$ & $27.8123$\\
+$H_{2}NCH_{2}CN$ & Aminoacetonitrile & $38_{4,35}-37_{4,34}$ & $345.75117$ & $343.2689$ & $1.9722$ & $7.0606$ & $8.0$ & $3.3113$\\
+$CO$ & Carbon Monoxide & $3-2$ & $345.79599$ & $33.1917$ & $113.7963$ & $-20.5825$ & $8.0$ & $191.0639$\\
+$g'Ga-(CH_{2}OH)_{2}$ & Ethylene Glycol & $22_{1,21}v=1-21_{0,21}v=0$ & $345.85194$ & $122.0468$ & $4.9053$ & $7.3147$ & $8.0$ & $8.2359$\\
+$H_{2}C_{18}O$ & Formaldehyde & $5_{0,5}-4_{0,4}$ & $345.88103$ & $49.8711$ & $5.2881$ & $8.3375$ & $8.0$ & $8.8788$\\
+$NS$ & Nitric sulfide & $J=15/2-13/2,\Omega=1/2$ & $345.90021$ & $70.7983$ & $30.2713$ & $10.9672$ & $8.0$ & $50.8255$\\
+$(CH_{3})_{2}COv=_{0}$ & Acetone & $15_{7,8}-14_{6,9}AA$ & $345.91243$ & $92.8831$ & $13.6343$ & $8.2044$ & $8.0$ & $22.892$\\
+$CH_{3}OHvt=_{0}$ & Methanol & $18_{-3,16}-17_{-4,14}$ & $345.91919$ & $459.4299$ & $21.6847$ & $8.0579$ & $8.0$ & $36.4085$\\
+$CH_{3}CH_{2}CNv=_{0}$ & Ethyl Cyanide & $32_{8,25}-32_{7,26}$ & $345.94052$ & $298.1705$ & $0.2829$ & $8.1896$ & $8.0$ & $0.7596$\\
+$g-CH_{3}CH_{2}OH$ & gauche-Ethanol & $28_{15,13}-29_{14,15},vt=1-0$ & $345.96948$ & $674.3881$ & $2.8709$ & $7.2094$ & $8.0$ & $4.8203$\\
+$(CH_{3})_{2}COv=_{0}$ & Acetone & $24_{12,12}-23_{13,11}EE$ & $345.97366$ & $235.2414$ & $6.7394$ & $7.6064$ & $8.0$ & $11.3155$\\
+$t-DCOOH$ & Formic Acid & $21_{5,17}-22_{2,20}$ & $345.98033$ & $301.3129$ & $10.2415$ & $12.8261$ & $8.0$ & $17.1954$\\
+$c-H^{13}CCCH$ & Cyclopropenylidene & $13_{3,10}-13_{2,11}$ & $345.99364$ & $208.5557$ & $2.2908$ & $8.0618$ & $8.0$ & $3.8462$\\
+$CH_{3}OCHOv=_{0}$ & Methyl Formate & $28_{12,17}-27_{12,16}E$ & $346.00166$ & $335.4293$ & $2.8637$ & $6.4006$ & $8.0$ & $4.8082$\\
+$g-CH_{3}CH_{2}OH$ & gauche-Ethanol & $20_{11,9}-19_{11,8},vt=1-1$ & $346.01721$ & $384.5567$ & $3.5314$ & $9.2137$ & $8.0$ & $5.9293$\\
+\hline
+
+
+
+    \end{tabular}
+\end{table}
+\end{document}

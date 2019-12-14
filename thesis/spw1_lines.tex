@@ -1,0 +1,86 @@
+\documentclass[10pt]{article}
+\usepackage{times}
+\usepackage{geometry}
+\usepackage{listings}
+\usepackage{color}
+\usepackage{xcolor}
+\usepackage[most]{tcolorbox}
+\definecolor{bg}{RGB}{240,248,255}
+ 
+\definecolor{codegreen}{rgb}{0,0.6,0}
+\definecolor{codegray}{rgb}{0.5,0.5,0.5}
+\definecolor{codepurple}{rgb}{0.58,0,0.82}
+\definecolor{backcolour}{rgb}{0.95,0.95,0.92}
+\renewcommand{\baselinestretch}{1.4} 
+
+\lstdefinestyle{CStyle}{   
+    commentstyle=\color{blue},
+    keywordstyle=\color{magenta},
+    numberstyle=\tiny\color{gray},
+    stringstyle=\color{purple},
+    basicstyle=\footnotesize,
+    breakatwhitespace=false,         
+    breaklines=true,                 
+    captionpos=b,                    
+    keepspaces=true,                 
+    numbers=left,                    
+    numbersep=5pt,                  
+    showspaces=false,                
+    showstringspaces=false,
+    showtabs=false,                  
+    tabsize=2,
+    language=C,
+    frame=single
+}
+ 
+\lstset{style=CStyle}
+
+\geometry{letterpaper, portrait, margin=0.2in}
+\usepackage[utf8]{inputenc}
+\usepackage{enumitem,amssymb}
+\usepackage{ragged2e}
+\usepackage{pythonhighlight}
+\newlist{thematic}{itemize}{8}
+\usepackage{pifont}
+\newcommand{\cmark}{\ding{51}}%
+\newcommand{\xmark}{\ding{55}}%
+\newcommand{\done}{\rlap{$\square$}{\raisebox{2pt}{\large\hspace{1pt}\cmark}}%
+\hspace{-2.5pt}}
+\newcommand{\wontfix}{\rlap{$\square$}{\large\hspace{1pt}\xmark}}
+\usepackage{xparse}
+\NewDocumentCommand{\code}{v}{%
+\texttt{\textcolor{blue}{#1}}%
+}
+\usepackage{graphicx}
+\graphicspath{ {./imgs/} }
+
+
+
+\begin{document}
+\begin{table}[htb]
+\small
+    \centering    
+    \begin{tabular}{l l l l l l l l l} 
+\hline
+Molecule & Name & Transition & Frequency & $E_{{u}}$ & Intensity & Velocity & $V_{{lsr}}$ & Peak / rms \\
+\hline
+$CH_{3}OHvt=_{0}$ & Methanol & $14_{7,8}-15_{6,9}++$ & $336.43822$ & $488.2179$ & $3.3687$ & $7.3909$ & $8.0$ & $3.1028$\\
+$CNCHO$ & Cyanoformaldehyde & $35_{6,30}-36_{5,31}$ & $336.44841$ & $400.3188$ & $2.7454$ & $7.0118$ & $8.0$ & $2.5287$\\
+$CH_{3}^{13}CH_{2}CN$ & Ethyl Cyanide & $34_{8,26}-34_{7,27}$ & $336.45107$ & $323.9327$ & $0.6648$ & $8.7744$ & $8.0$ & $1.7433$\\
+$CH_{3}OCHOv=_{0}$ & Methyl Formate & $35_{13,23}-35_{12,24}A$ & $336.45452$ & $484.8088$ & $2.9014$ & $6.3529$ & $8.0$ & $2.6725$\\
+$CH_{3}OCHOv=_{0}$ & Methyl Formate & $35_{13,22}-35_{12,23}E$ & $336.46561$ & $484.8108$ & $1.7567$ & $7.9995$ & $8.0$ & $4.6065$\\
+$CNCHO$ & Cyanoformaldehyde & $35_{6,29}-36_{5,32}$ & $336.46699$ & $400.3188$ & $3.3371$ & $6.9874$ & $8.0$ & $3.0738$\\
+$HC_{3}N$ & Cyanoacetylene & $J=37-36$ & $336.52008$ & $306.905$ & $8.053$ & $13.4069$ & $8.0$ & $21.1174$\\
+$CCCO$ & 3-Oxo-1,2-Propadienylidene & $35-34$ & $336.62937$ & $290.8558$ & $-0.3128$ & $12.6003$ & $8.0$ & $-0.8202$\\
+$^{13}CCH$ & Ethynyl & $N=4-3,J=7/2-5/2$ & $336.63657$ & $40.436$ & $-14.343$ & $9.4492$ & $8.0$ & $-13.211$\\
+$(CH_{3})_{2}COv=_{0}$ & Acetone & $23_{13,10}-22_{14,9}EA$ & $336.64028$ & $222.2164$ & $-13.5255$ & $10.0258$ & $8.0$ & $-12.458$\\
+$H_{2}NCH_{2}CN$ & Aminoacetonitrile & $37_{19,18}-36_{19,17}$ & $336.65152$ & $748.4583$ & $-13.5255$ & $6.1625$ & $8.0$ & $-12.458$\\
+$^{13}CCH$ & Ethynyl & $N=4-3,J=7/2-5/2$ & $336.65645$ & $40.4354$ & $-15.7359$ & $7.0159$ & $8.0$ & $-14.494$\\
+$(CH_{3})_{2}COv=_{0}$ & Acetone & $20_{13,8}-19_{12,7}AA$ & $336.65982$ & $171.7552$ & $-16.9879$ & $6.8598$ & $8.0$ & $-15.6472$\\
+$SO_{2}v=_{0}$ & Sulfur dioxide & $16_{7,9}-17_{6,12}$ & $336.66958$ & $245.1142$ & $-13.0386$ & $7.5137$ & $8.0$ & $-12.0096$\\
+\hline
+
+
+    \end{tabular}
+\end{table}
+\end{document}
