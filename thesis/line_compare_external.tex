@@ -1,0 +1,76 @@
+\documentclass[10pt]{article}
+\usepackage{times}
+\usepackage{geometry}
+\usepackage{listings}
+\usepackage{color}
+\usepackage{xcolor}
+\usepackage[most]{tcolorbox}
+\definecolor{bg}{RGB}{240,248,255}
+ 
+\definecolor{codegreen}{rgb}{0,0.6,0}
+\definecolor{codegray}{rgb}{0.5,0.5,0.5}
+\definecolor{codepurple}{rgb}{0.58,0,0.82}
+\definecolor{backcolour}{rgb}{0.95,0.95,0.92}
+\renewcommand{\baselinestretch}{1.4} 
+
+\lstdefinestyle{CStyle}{   
+    commentstyle=\color{blue},
+    keywordstyle=\color{magenta},
+    numberstyle=\tiny\color{gray},
+    stringstyle=\color{purple},
+    basicstyle=\footnotesize,
+    breakatwhitespace=false,         
+    breaklines=true,                 
+    captionpos=b,                    
+    keepspaces=true,                 
+    numbers=left,                    
+    numbersep=5pt,                  
+    showspaces=false,                
+    showstringspaces=false,
+    showtabs=false,                  
+    tabsize=2,
+    language=C,
+    frame=single
+}
+ 
+\lstset{style=CStyle}
+
+\geometry{letterpaper, portrait, margin=0.2in}
+\usepackage[utf8]{inputenc}
+\usepackage{enumitem,amssymb}
+\usepackage{ragged2e}
+\usepackage{pythonhighlight}
+\newlist{thematic}{itemize}{8}
+\usepackage{pifont}
+\newcommand{\cmark}{\ding{51}}%
+\newcommand{\xmark}{\ding{55}}%
+\newcommand{\done}{\rlap{$\square$}{\raisebox{2pt}{\large\hspace{1pt}\cmark}}%
+\hspace{-2.5pt}}
+\newcommand{\wontfix}{\rlap{$\square$}{\large\hspace{1pt}\xmark}}
+\usepackage{xparse}
+\NewDocumentCommand{\code}{v}{%
+\texttt{\textcolor{blue}{#1}}%
+}
+\usepackage{graphicx}
+\graphicspath{ {./imgs/} }
+
+
+
+\begin{document}
+
+\begin{tabular}{p{2cm} p{8cm}}
+\hline
+Molecule & Occurrence \\
+\hline
+\hline
+$CH_{3}CHO$ & B335, HH212, L483, SPW0, SPW2, SPW4, SPW5, SVS13-A \\
+$CH_{3}OH$ & Ser-emb1, SPW0, SPW2, SPW3, SPW4, SVS13-A \\
+$CH_{3}CH_{2}OH$ & SPW0, SPW1, SPW2, SPW3, SPW5, SVS13-A \\
+$NH_{2}CHO$ &  B335, L483, SPW2, SPW3, SVS13-A \\
+$CH_{3}OCHO$ &  Ser-emb1, SPW1, SPW2, SPW3, SPW5 \\
+$CH_{3}NH_{2}$ &  SPW0, SPW2, SPW3, SVS13-A13 \\
+$SiO$ &  L483 , Ser-emb1, SPW4 \\
+\hline
+\end{tabular}
+
+\end{document}
